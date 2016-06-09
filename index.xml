@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ishbir&#39;s Blog</title>
+    <link>http://www.ishbir.com/</link>
+    <description>Recent content on Ishbir&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>ishbir@ishbir.com (Ishbir Singh)</managingEditor>
+    <webMaster>ishbir@ishbir.com (Ishbir Singh)</webMaster>
+    <lastBuildDate>Thu, 09 Jun 2016 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://www.ishbir.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Wrapping a C library in C&#43;&#43;</title>
+      <link>http://www.ishbir.com/post/2016-06-09-wrapping-a-c-library-in-c&#43;&#43;/</link>
+      <pubDate>Thu, 09 Jun 2016 00:00:00 +0000</pubDate>
+      <author>ishbir@ishbir.com (Ishbir Singh)</author>
+      <guid>http://www.ishbir.com/post/2016-06-09-wrapping-a-c-library-in-c&#43;&#43;/</guid>
+      <description>
+
+&lt;p&gt;Lots of libraries offer interfaces in C mainly to be universally callable from
+any programming language. This is absolutely fantastic! It lets any language
+with a FFI (Foreign Function Interface) to hook into and use any of the large
+number of C libraries. But the downsides? The code is verbose, memory needs to
+be manually managed and it&amp;rsquo;s really easy to forget the crucial bits.&lt;/p&gt;
+
+&lt;p&gt;C++, being extremely close to C, can easily call into a C library, if needed.
+And the vice-verse is also true if &lt;code&gt;extern &amp;quot;C&amp;quot;&lt;/code&gt; is used (to avoid name
+mangling). So, should you even go through the trouble of wrapping it in C++? If
+so, what&amp;rsquo;s a good way to do it? This post explores these questions and offers an
+insight into the hell called cross-language interoperability.&lt;/p&gt;
+
+&lt;h1 id=&#34;motivation&#34;&gt;Motivation&lt;/h1&gt;
+
+&lt;p&gt;RAII (&lt;em&gt;Resource Acquisition Is Initialization&lt;/em&gt;) is one of the most common C++
+idioms that exists. C libraries, on the other hand, use functions like &lt;code&gt;resource_open()&lt;/code&gt;,
+&lt;code&gt;resource_destroy()&lt;/code&gt;. The function names are ugly (&lt;em&gt;ahem&lt;/em&gt;) and the algorithm
+gets lost within the endless memory management. Try reading the source code of
+the Linux kernel, for example.&lt;/p&gt;
+
+&lt;p&gt;C++ greatly improves semantics with its destructors, copy constructors, operator
+overloads, templates and as of C++11, move constructors, resulting in code that
+is very easy to read, understand and not too hard to reason about. Moreover, the
+introduction of features like lambdas makes C-style function pointers and
+&lt;code&gt;void*&lt;/code&gt; look like code from the 90s.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ishbir.com/img/posts/shiny-features-meme.jpg&#34; alt=&#34;Meme&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This discussion begs the question: why wouldn&amp;rsquo;t you wrap C code to be called
+from C++ in a lightweight wrapper? Possible reasons: time/resource constraints,
+and possibility of introduction of bugs and new attack vectors.&lt;/p&gt;
+
+&lt;h2 id=&#34;time-resource-constraints&#34;&gt;Time/Resource Constraints&lt;/h2&gt;
+
+&lt;p&gt;If the library exposes a few functions that are simple enough to be used well
+and idiomatically in modern C++, then there&amp;rsquo;s nothing more that needs to be
+done. C++ can call directly into C without any problem so you&amp;rsquo;re good to go.&lt;/p&gt;
+
+&lt;p&gt;However, as soon as the library hits 2 dozen or so functions and is written in
+an OOP style (think CURL), wrapping it in C++ becomes a necessity. If a typical
+program using your library is an endless mess of &lt;code&gt;resource_init&lt;/code&gt; and &lt;code&gt;resource_free&lt;/code&gt;,
+again, you are better off wrapping it in C++ than manually having to investigate
+Valgrind&amp;rsquo;s complaints. The 2-4 days you spend wrapping a C library using modern
+C++ is going to save hours of headache each and every day for months to come.&lt;/p&gt;
+
+&lt;h2 id=&#34;possibility-of-introduction-of-bugs&#34;&gt;Possibility of Introduction of Bugs&lt;/h2&gt;
+
+&lt;p&gt;Bugs will always exist in programs and abstractions are bound to introduce even
+more of them. If you&amp;rsquo;re trying to expose an interface very different from what
+the library currently offers, I can guarantee you: you will bang your head on
+the wall trying to fight with the compiler and the patterns that GoF taught you.
+You&amp;rsquo;re dealing with a badly written library and are probably better off with a
+complete re-write.&lt;/p&gt;
+
+&lt;p&gt;But, if the library already offers an OOPish interface, a wrapper around most
+functions would not require more than 2-3 lines of code per function. And as we
+all know: lesser the code, fewer the bugs.&lt;/p&gt;
+
+&lt;p&gt;Again, depending on the library, it can be very difficult/impossible to test
+individual functions in isolation. This could be because you don&amp;rsquo;t have access
+to the internals of the library, the library communicates with the outside world
+(network) and/or causes side-effects (talking to the kernel). This could be the
+result of a bad design or the very nature of the component. 100% test coverage,
+in this case, is much more effort than it&amp;rsquo;s worth. The best you could do to
+ensure that no bugs creeped in is pair programming or getting your code reviewed
+by other programmers. And of course, pray.&lt;/p&gt;
+
+&lt;h2 id=&#34;new-attack-vectors&#34;&gt;New Attack Vectors&lt;/h2&gt;
+
+&lt;p&gt;Security vulnerabilities are a special type of bugs that could potentially be
+exploitable and capable of bringing a system (or the internet?) down to its
+knees and have exposed organizations running for cover (and &lt;a href=&#34;http://heartbleed.com&#34;&gt;much&lt;/a&gt;,
+&lt;a href=&#34;http://www.csoonline.com/article/2132737/malware-cybercrime/smart-tv-hack-highlights-risk-of--the-internet-of-everything-.html&#34;&gt;much&lt;/a&gt;
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Shellshock_(software_bug)&#34;&gt;more&lt;/a&gt;). But should
+this be a deterrent to a well-read software engineer? Of course not! It should
+rather be a warning: you should always be security-conscious when you write your
+code.&lt;/p&gt;
+
+&lt;p&gt;Fortunately, code written in C++ in arguably safer than the same thing written
+in C. This is because C++ gives you the power of abstractions that take the
+responsibility of the nasty bits away from the caller and towards the callee.
+For example, common issues like buffer overflows and format string
+vulnerabilities can be easily avoided by using the C++ standard library
+functions instead of their C stdlib counterparts.&lt;/p&gt;
+
+&lt;p&gt;Very few rookie programmers, if any at all, use &lt;code&gt;snprintf&lt;/code&gt; instead of &lt;code&gt;sprintf&lt;/code&gt;.
+Wrapping everything in C++ and making it a point (across your team) to use the
+standard library/Boost as much as possible avoids a whole mountain of security
+issues.&lt;/p&gt;
+
+&lt;h1 id=&#34;the-process&#34;&gt;The Process&lt;/h1&gt;
+
+&lt;p&gt;So you&amp;rsquo;re convinced that the C library you&amp;rsquo;re going to use in your quest for
+world domination needs to be wrapped in C++. Great. But how do you do it? It
+really depends on the library. For a few libraries, it might be as simple as
+creating classes with the appropriate methods, adding/deleting the move, copy
+and other constructors, operators and the destructor.&lt;/p&gt;
+
+&lt;p&gt;However, sometimes the picture isn&amp;rsquo;t as rosy. The library maybe exposes
+functions that accept function pointers to provide callbacks and notifications
+and you want to provide compatibility with &lt;code&gt;std::function&lt;/code&gt; (hint: lambdas that
+capture variables cannot be cast to function pointers). Or maybe it returns a
+&lt;code&gt;status&lt;/code&gt; enum value for each and every function and you want a uniform
+way of handling these values (exceptions).&lt;/p&gt;
+
+&lt;p&gt;You will need to jump through various hoops, write various helper functions and
+think like an API user to be create a useful interface that works. At times,
+it will be boring and tedious (who likes mapping C-style enums to C++ enum
+classes?). Other times, it could leave you scratching your head (the curious
+case of function pointers).&lt;/p&gt;
+
+&lt;p&gt;But if you do it right, the beauty of code written in C++ using your wrapper
+will make you orgasm. I promise.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;P.S&lt;/strong&gt;.: Here&amp;rsquo;s a medium-sized library (cnats) that I made a C++ wrapper for:
+&lt;a href=&#34;https://github.com/ishbir/cppnats&#34;&gt;cppnats&lt;/a&gt;. It includes simple tests that
+highlight usage. It isn&amp;rsquo;t perfect and there are a few things I couldn&amp;rsquo;t manage
+to translate to C++ (error handler) but it works for me right now.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>http://www.ishbir.com/page/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>ishbir@ishbir.com (Ishbir Singh)</author>
+      <guid>http://www.ishbir.com/page/about/</guid>
+      <description>
+
+&lt;p&gt;My name is Ishbir Singh and describing myself as a software engineer would
+present you an incomplete picture of who I am. That is a very broad question,
+difficult to answer in one page.&lt;/p&gt;
+
+&lt;p&gt;A better question would be: what do I like to do? I like to travel, live in new
+cultures and learn new languages. I like to work to learn and not vice-versa.
+I like to be curious about life and other people.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;I don&amp;rsquo;t understand. Where does sofwtware engineering fit in?&amp;rdquo; you ask. I look
+at machines and picture the humans behind them: their motivation, story and
+goals. Software for me isn&amp;rsquo;t just lines of code. It&amp;rsquo;s a piece of art; a story
+waiting to be discovered and written. It is with this attitude that I work on
+any project: 100% of emotional and intellectual dedication. I am invested in
+the success of not only my project, but also of the organization behind it.&lt;/p&gt;
+
+&lt;p&gt;My technological interests change every few years but right now, they are:
+crypto-currencies, security and artificial intelligence.&lt;/p&gt;
+
+&lt;h1 id=&#34;why-d-i-start-this-blog&#34;&gt;Why&amp;rsquo;d I start this blog?&lt;/h1&gt;
+
+&lt;p&gt;I felt like I needed a place to put together all my programming research and
+improve my writing skills. What better way than to blog about it? Hopefully it
+would help someone with their own endeavors.&lt;/p&gt;
+
+&lt;p&gt;Also, a blog is an excellent marketing tool. :-)&lt;/p&gt;
+
+&lt;h1 id=&#34;pss&#34;&gt;Pss&amp;hellip;&lt;/h1&gt;
+
+&lt;p&gt;Want to get in touch? Check out the links in the footer!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;PGP Key Fingerprint&lt;/strong&gt;: &lt;em&gt;4467 3F8A 441F F60D C2FE DAB5 E177 3FFC 9B79 7CC8&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

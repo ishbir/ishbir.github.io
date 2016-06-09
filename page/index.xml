@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pages on Ishbir&#39;s Blog</title>
+    <link>http://www.ishbir.com/page/</link>
+    <description>Recent content in Pages on Ishbir&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>ishbir@ishbir.com (Ishbir Singh)</managingEditor>
+    <webMaster>ishbir@ishbir.com (Ishbir Singh)</webMaster>
+    <atom:link href="http://www.ishbir.com/page/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>About</title>
+      <link>http://www.ishbir.com/page/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>ishbir@ishbir.com (Ishbir Singh)</author>
+      <guid>http://www.ishbir.com/page/about/</guid>
+      <description>
+
+&lt;p&gt;My name is Ishbir Singh and describing myself as a software engineer would
+present you an incomplete picture of who I am. That is a very broad question,
+difficult to answer in one page.&lt;/p&gt;
+
+&lt;p&gt;A better question would be: what do I like to do? I like to travel, live in new
+cultures and learn new languages. I like to work to learn and not vice-versa.
+I like to be curious about life and other people.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;I don&amp;rsquo;t understand. Where does sofwtware engineering fit in?&amp;rdquo; you ask. I look
+at machines and picture the humans behind them: their motivation, story and
+goals. Software for me isn&amp;rsquo;t just lines of code. It&amp;rsquo;s a piece of art; a story
+waiting to be discovered and written. It is with this attitude that I work on
+any project: 100% of emotional and intellectual dedication. I am invested in
+the success of not only my project, but also of the organization behind it.&lt;/p&gt;
+
+&lt;p&gt;My technological interests change every few years but right now, they are:
+crypto-currencies, security and artificial intelligence.&lt;/p&gt;
+
+&lt;h1 id=&#34;why-d-i-start-this-blog&#34;&gt;Why&amp;rsquo;d I start this blog?&lt;/h1&gt;
+
+&lt;p&gt;I felt like I needed a place to put together all my programming research and
+improve my writing skills. What better way than to blog about it? Hopefully it
+would help someone with their own endeavors.&lt;/p&gt;
+
+&lt;p&gt;Also, a blog is an excellent marketing tool. :-)&lt;/p&gt;
+
+&lt;h1 id=&#34;pss&#34;&gt;Pss&amp;hellip;&lt;/h1&gt;
+
+&lt;p&gt;Want to get in touch? Check out the links in the footer!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;PGP Key Fingerprint&lt;/strong&gt;: &lt;em&gt;4467 3F8A 441F F60D C2FE DAB5 E177 3FFC 9B79 7CC8&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
