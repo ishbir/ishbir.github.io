@@ -121,15 +121,16 @@
               <div class="post-entry">
                 <p>Lots of libraries offer interfaces in C mainly to be universally callable from
 any programming language. This is absolutely fantastic! It lets any language
-with a FFI (Foreign Function Interface) to hook into and use any of the large
-number of C libraries. But the downsides? The code is verbose, memory needs to
-be manually managed and it&rsquo;s really easy to forget the crucial bits.</p>
+with a FFI (Foreign Function Interface) to hook into and use a large number of
+C libraries. But the downsides? The code is verbose, memory needs to be manually
+managed and it&rsquo;s really easy to forget the crucial bits.</p>
 
-<p>C++, being extremely close to C, can easily call into a C library, if needed.
-And the vice-verse is also true if <code>extern &quot;C&quot;</code> is used (to avoid name
-mangling). So, should you even go through the trouble of wrapping it in C++? If
-so, what&rsquo;s a good way to do it? This post explores these questions and offers an
-insight into the hell called cross-language interoperability.</p>
+<p>C++, being extremely close to C, can easily call into a C library if needed.
+And the vice-verse is also true if <code>extern &quot;C&quot;</code> is used (instruct the compiler
+to not mangle function names). So, should you even go through the trouble of
+wrapping it in C++? If so, what&rsquo;s a good way to do it? This post explores these
+questions and offers an insight into the hell called cross-language
+interoperability.</p>
 
           	  <a href="http://www.ishbir.com/post/2016-06-09-wrapping-a-c-library-in-c&#43;&#43;/" class="post-read-more">[Read&nbsp;More]</a>
               </div>

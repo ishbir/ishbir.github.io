@@ -21,15 +21,16 @@
 
 &lt;p&gt;Lots of libraries offer interfaces in C mainly to be universally callable from
 any programming language. This is absolutely fantastic! It lets any language
-with a FFI (Foreign Function Interface) to hook into and use any of the large
-number of C libraries. But the downsides? The code is verbose, memory needs to
-be manually managed and it&amp;rsquo;s really easy to forget the crucial bits.&lt;/p&gt;
+with a FFI (Foreign Function Interface) to hook into and use a large number of
+C libraries. But the downsides? The code is verbose, memory needs to be manually
+managed and it&amp;rsquo;s really easy to forget the crucial bits.&lt;/p&gt;
 
-&lt;p&gt;C++, being extremely close to C, can easily call into a C library, if needed.
-And the vice-verse is also true if &lt;code&gt;extern &amp;quot;C&amp;quot;&lt;/code&gt; is used (to avoid name
-mangling). So, should you even go through the trouble of wrapping it in C++? If
-so, what&amp;rsquo;s a good way to do it? This post explores these questions and offers an
-insight into the hell called cross-language interoperability.&lt;/p&gt;
+&lt;p&gt;C++, being extremely close to C, can easily call into a C library if needed.
+And the vice-verse is also true if &lt;code&gt;extern &amp;quot;C&amp;quot;&lt;/code&gt; is used (instruct the compiler
+to not mangle function names). So, should you even go through the trouble of
+wrapping it in C++? If so, what&amp;rsquo;s a good way to do it? This post explores these
+questions and offers an insight into the hell called cross-language
+interoperability.&lt;/p&gt;
 
 &lt;h1 id=&#34;motivation&#34;&gt;Motivation&lt;/h1&gt;
 
@@ -130,13 +131,14 @@ it will be boring and tedious (who likes mapping C-style enums to C++ enum
 classes?). Other times, it could leave you scratching your head (the curious
 case of function pointers).&lt;/p&gt;
 
-&lt;p&gt;But if you do it right, the beauty of code written in C++ using your wrapper
-will make you orgasm. I promise.&lt;/p&gt;
+&lt;p&gt;But if done right, the beauty of code written in C++ using your wrapper will
+make you orgasm. I promise.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;P.S&lt;/strong&gt;.: Here&amp;rsquo;s a medium-sized library (cnats) that I made a C++ wrapper for:
-&lt;a href=&#34;https://github.com/ishbir/cppnats&#34;&gt;cppnats&lt;/a&gt;. It includes simple tests that
-highlight usage. It isn&amp;rsquo;t perfect and there are a few things I couldn&amp;rsquo;t manage
-to translate to C++ (error handler) but it works for me right now.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;P.S&lt;/strong&gt;.: &lt;a href=&#34;https://github.com/ishbir/cppnats&#34;&gt;cppnats&lt;/a&gt; is a C++ wrapper that I
+made for a medium-sized library (cnats). It includes simple tests that highlight
+usage. It isn&amp;rsquo;t perfect and there are a few things I couldn&amp;rsquo;t manage to
+translate to C++ (read: wasn&amp;rsquo;t motivated enough) like the error handler and
+event loop functionality but it suits my current needs well.&lt;/p&gt;
 </description>
     </item>
     
