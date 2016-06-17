@@ -137,8 +137,9 @@ make you orgasm. I promise.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;P.S&lt;/strong&gt;.: &lt;a href=&#34;https://github.com/ishbir/cppnats&#34;&gt;cppnats&lt;/a&gt; is a C++ wrapper that I
 made for a medium-sized library (cnats). It includes simple tests that highlight
 usage. It isn&amp;rsquo;t perfect and there are a few things I couldn&amp;rsquo;t manage to
-translate to C++ (read: wasn&amp;rsquo;t motivated enough) like the error handler and
-event loop functionality but it suits my current needs well.&lt;/p&gt;
+translate to C++ (read: wasn&amp;rsquo;t motivated enough) like non-RAII pointer
+encapsulation of &lt;code&gt;natsConnection&lt;/code&gt; and &lt;code&gt;natsSubscription&lt;/code&gt; but it suits my current
+needs well.&lt;/p&gt;
 </description>
     </item>
     
