@@ -122,11 +122,11 @@ curl = &amp;quot;0.3&amp;quot;
 
 &lt;p&gt;However, to be any useful as a library, the code has to reside in its own function and return the
 output as a &lt;code&gt;String&lt;/code&gt; instead of printing it to the screen. The first part is easy, move the code
-that creates &lt;code&gt;f&lt;/code&gt; to a new function and tada, done. However, the second part was slightly harder
+that creates &lt;code&gt;req&lt;/code&gt; to a new function and tada, done. However, the second part is slightly harder
 because of the write function.&lt;/p&gt;
 
 &lt;p&gt;The write function may be called multiple times with partial data and each time, it has to write
-those bytes somewhere. The problem was, where? If we declare a &lt;code&gt;Vec&amp;lt;u8&amp;gt;&lt;/code&gt; on the stack, it would be
+those bytes somewhere. The problem is, where? If we declare a &lt;code&gt;Vec&amp;lt;u8&amp;gt;&lt;/code&gt; on the stack, it would be
 lost as soon as the function returned (which would be very soon since everything is async).&lt;/p&gt;
 
 &lt;p&gt;Thus it needs to be on the heap. But a simple &lt;code&gt;Box&lt;/code&gt; wouldn&amp;rsquo;t do because it needs to be accessed
