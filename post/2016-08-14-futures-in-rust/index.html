@@ -1,39 +1,123 @@
-<!DOCTYPE html>
-<html lang="en">
 
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
   <head>
+    
+
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Futures in Rust</title>
+ 
 
-  <meta name="author" content="Ishbir Singh" />
+
+      <title>Futures in Rust - </title>
+
+  <meta name="description" content="Writing an Async Web API Wrapper - An excercise in learning Rust"><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Ishbir\u0027s Blog",
+    
+    "url": "https:\/\/www.ishbir.com\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/www.ishbir.com\/"
   
   
-
-  <meta name="generator" content="Hugo 0.16-DEV" />
-
-  <link rel="alternate" href="http://www.ishbir.com/index.xml" type="application/rss+xml" title="Ishbir&#39;s Blog">
-
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="http://www.ishbir.com/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="http://www.ishbir.com/css/main.css" />
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
-  <link rel="stylesheet" href="http://www.ishbir.com/css/pygment_highlights.css" />
   
   
-  <meta property="og:title" content="Futures in Rust" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="/" />
-  <meta property="og:image" content="img/avatar.jpg" />
-  
-</head>
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/www.ishbir.com\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/www.ishbir.com\/post\/2016-08-14-futures-in-rust\/",
+          "name": "Futures in rust"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "Futures in Rust",
+  "description" : "I stumbled upon Rust a few months ago but didn\u0026rsquo;t really bother to learn it. The ecosystem was tiny, the language seemed to be of little practical use and it was bothersome to get my head around its quirks like borrowing and lifetimes.\nBut things have changed. With growing interest and a fast-evolving ecosystem, the language is impossible to ignore. Go\u0026rsquo;s goroutines and Scala\u0026rsquo;s Futures had really spoiled me and I really needed something similar. Then I stumbled upon futures, a zero-cost futures and streams Rust library. And I thought of making a simple async web API wrapper as my first Rust project and a blog post to go along as a tutorial.\n",
+  "inLanguage" : "en",
+  "wordCount":  1756 ,
+  "datePublished" : "2016-08-14T00:00:00\u002b00:00",
+  "dateModified" : "2016-08-14T00:00:00\u002b00:00",
+  "image" : "https:\/\/www.ishbir.com\/img\/avatar.jpg",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/www.ishbir.com\/post\/2016-08-14-futures-in-rust\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/www.ishbir.com\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/www.ishbir.com\/img\/avatar.jpg",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
 
 
+<meta property="og:title" content="Futures in Rust" />
+<meta property="og:description" content="Writing an Async Web API Wrapper - An excercise in learning Rust">
+<meta property="og:image" content="https://www.ishbir.com/img/avatar.jpg" />
+<meta property="og:url" content="https://www.ishbir.com/post/2016-08-14-futures-in-rust/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Ishbir&#39;s Blog" />
+
+  <meta name="twitter:title" content="Futures in Rust" />
+  <meta name="twitter:description" content="Writing an Async Web API Wrapper - An excercise in learning Rust">
+  <meta name="twitter:image" content="https://www.ishbir.com/img/avatar.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="generator" content="Hugo 0.140.2">
+  <link rel="alternate" href="https://www.ishbir.com/index.xml" type="application/rss+xml" title="Ishbir&#39;s Blog"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://www.ishbir.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" /><link rel="stylesheet" href="https://www.ishbir.com/css/syntax.css" /><link rel="stylesheet" href="https://www.ishbir.com/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-EQH4SCJNZC"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-EQH4SCJNZC');
+        }
+      </script>
+  </head>
   <body>
-
     <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -43,101 +127,169 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="http://www.ishbir.com/">Ishbir&#39;s Blog</a>
+      <a class="navbar-brand" href="https://www.ishbir.com/">Ishbir&#39;s Blog</a>
     </div>
 
     <div class="collapse navbar-collapse" id="main-navbar">
       <ul class="nav navbar-nav navbar-right">
-      
         
-          <li>
-          <a title="Blog" href="http://www.ishbir.com/">Blog</a>
-  	      </li>
-  	    
-      
+          
+            <li>
+              <a title="Blog" href="https://www.ishbir.com/">Blog</a>
+            </li>
+          
         
-          <li>
-          <a title="About" href="http://www.ishbir.com/page/about/">About</a>
-  	      </li>
-  	    
-      
+          
+            <li>
+              <a title="About" href="https://www.ishbir.com/page/about/">About</a>
+            </li>
+          
+        
+
+        
+
+        
       </ul>
     </div>
 
-	<div class="avatar-container">
-	  <div class="avatar-img-border">
-      
-          <a title="Ishbir&#39;s Blog" href="http://www.ishbir.com/">
-              <img class="avatar-img" src="http://www.ishbir.com/img/avatar.jpg" alt="Ishbir&#39;s Blog" />
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="Ishbir&#39;s Blog" href="https://www.ishbir.com/">
+            <img class="avatar-img" src="https://www.ishbir.com/img/avatar.jpg" alt="Ishbir&#39;s Blog" />
+           
           </a>
-      
-	  </div>
-	</div>
+        </div>
+      </div>
+    
 
   </div>
 </nav>
 
 
-    <div role="main" class="container main-content">
-
-      
-        
 
 
+    
 
 
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 
-<header class="header-section ">
+<div class="pswp__bg"></div>
 
-<div class="intro-header no-img">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="post-heading">
-          <h1>Futures in Rust</h1>
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
       
-        
-      <h2 class="post-subheading">Writing an Async Web API Wrapper - An excercise in learning Rust</h2>
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
       
       
-      
-      
-      <span class="post-meta">Posted on August 14, 2016</span>
-      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
 </div>
-</header>
+
+
+  
+  
+  
 
 
 
 
-<div class="container">
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Futures in Rust</h1>
+              
+              
+              
+                
+                  <h2 class="post-subheading">Writing an Async Web API Wrapper - An excercise in learning Rust</h2>
+                
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on August 14, 2016
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-          
-
-<p>I stumbled upon <a href="https://www.rust-lang.org">Rust</a> a few months ago but didn&rsquo;t really bother to
+        <p>I stumbled upon <a href="https://www.rust-lang.org">Rust</a> a few months ago but didn&rsquo;t really bother to
 learn it. The ecosystem was tiny, the language seemed to be of little practical use and it was
 bothersome to get my head around its quirks like borrowing and lifetimes.</p>
-
 <p>But things have changed. With growing interest and a fast-evolving ecosystem, the language is
 impossible to ignore. Go&rsquo;s goroutines and Scala&rsquo;s <code>Future</code>s had really spoiled me and I really
 needed something similar. Then I stumbled upon <a href="https://github.com/alexcrichton/futures-rs/">futures</a>,
 a zero-cost futures and streams Rust library. And I thought of making a simple async web API
 wrapper as my first Rust project and a blog post to go along as a tutorial.</p>
-
 <h1 id="background">Background</h1>
-
 <p>I started off very naively, searching for &ldquo;async HTTP client library Rust&rdquo; on Google and the first
 couple of results included <a href="https://github.com/hyperium/hyper">hyper</a>, <a href="https://github.com/carllerche/mio">mio</a>
 and <a href="https://github.com/tailhook/rotor">rotor</a>.</p>
-
 <h2 id="hyper">hyper</h2>
-
 <p><a href="https://github.com/hyperium/hyper">hyper</a> is a well designed and almost defacto HTTP library in
 the Rust ecosystem but the async support was still a work-in-progress and used a very last-decade
 interface with handler functions (<code>hyper::client::Handler</code> trait). I do not know if an alternative
@@ -145,494 +297,403 @@ API exists but the <a href="https://github.com/hyperium/hyper/blob/master/exampl
 repelled me enough. I was looking for something flexible and composable, which the users of my
 library could naturally extend and not a mess of handlers which would be a nightmare to reason
 about and extend.</p>
-
 <h2 id="mio">mio</h2>
-
 <p><a href="https://github.com/carllerche/mio">mio</a> is bare-bones but definitely the defacto async library
 that there is for Rust. It uses an event loop at its core and boasts of non-blocking sockets and
 thread safe message channels for communication. Unfortunately, it&rsquo;s pretty low level and would need
 a lot more on top to make it suitable for my purpose.</p>
-
 <h2 id="rotor">rotor</h2>
-
 <p>Seeing rotor&rsquo;s <a href="https://github.com/tailhook/rotor">Github project page</a> excited me because they
 promised &ldquo;A Future type which allows communication between state machines in safe and efficient
 way&rdquo;. I immediately went to look at the two server and client examples to see how this <code>Future</code>
 type works. <code>Ctrl+F Future</code>: no results. I go to the project docs and search for <code>Future</code>. Nothing.</p>
-
 <p>I&rsquo;m not a very patient man and abandoned rotor without bothering to investigate more. Besides, I&rsquo;m
 still a Rust beginner and if a library doesn&rsquo;t have an example that corresponds closely with what
 I want, I&rsquo;m not diving deep into its guts to figure out how to make it work.</p>
-
 <h2 id="futures">futures</h2>
-
 <p>Dejected, I was about to give up when I received <a href="https://this-week-in-rust.org/">This Week in Rust</a>
 in my mailbox. And it featured <a href="https://github.com/tokio-rs/tokio">tokio</a> which then led me to
 <a href="https://github.com/alexcrichton/futures-rs/">futures</a>! The library reminded me of Scala&rsquo;s <code>Future</code>s
 that I sorely missed. Moreover they seemed simple enough to work with. And thus I began writing my
 first Rust program.</p>
-
 <h1 id="first-steps">First Steps</h1>
-
 <p>The simplest thing to do is to retrieve data and print it to the screen. Easy enough.</p>
-<div class="highlight"><pre><code class="language-rust" data-lang="rust"><span></span><span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">curl</span><span class="p">;</span><span class="w"></span>
-<span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">futures</span><span class="p">;</span><span class="w"></span>
-<span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">futures_curl</span><span class="p">;</span><span class="w"></span>
-<span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">futures_mio</span><span class="p">;</span><span class="w"></span>
-
-<span class="kn">use</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">io</span><span class="o">::</span><span class="n">Write</span><span class="p">;</span><span class="w"></span>
-
-<span class="kn">use</span><span class="w"> </span><span class="n">curl</span><span class="o">::</span><span class="n">easy</span><span class="o">::</span><span class="n">Easy</span><span class="p">;</span><span class="w"></span>
-<span class="kn">use</span><span class="w"> </span><span class="n">futures_mio</span><span class="o">::</span><span class="n">Loop</span><span class="p">;</span><span class="w"></span>
-<span class="kn">use</span><span class="w"> </span><span class="n">futures_curl</span><span class="o">::</span><span class="n">Session</span><span class="p">;</span><span class="w"></span>
-
-<span class="k">fn</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// Create an event loop that we&#39;ll run on, as well as an HTTP `Session`</span>
-<span class="w">    </span><span class="c1">// which we&#39;ll be routing all requests through.</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">lp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Loop</span><span class="o">::</span><span class="n">new</span><span class="p">().</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">sess</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Session</span><span class="o">::</span><span class="n">new</span><span class="p">(</span><span class="n">lp</span><span class="p">.</span><span class="n">pin</span><span class="p">());</span><span class="w"></span>
-
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">req</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Easy</span><span class="o">::</span><span class="n">new</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="n">req</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="k">true</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="n">req</span><span class="p">.</span><span class="n">url</span><span class="p">(</span><span class="s">&quot;https://www.rust-lang.org&quot;</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
-
-<span class="w">    </span><span class="n">req</span><span class="p">.</span><span class="n">write_function</span><span class="p">(</span><span class="o">|</span><span class="n">data</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">io</span><span class="o">::</span><span class="n">stdout</span><span class="p">().</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
-<span class="w">            </span><span class="nb">Ok</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">len</span><span class="p">())</span><span class="w"></span>
-<span class="w">        </span><span class="p">})</span><span class="w"></span>
-<span class="w">        </span><span class="p">.</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
-
-
-<span class="w">    </span><span class="n">lp</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">sess</span><span class="p">.</span><span class="n">perform</span><span class="p">(</span><span class="n">req</span><span class="p">)).</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</code></pre></div>
-
-<p>And <code>Cargo.toml</code>:</p>
-
-<pre><code>[dependencies]
-futures = { git = &quot;https://github.com/alexcrichton/futures-rs&quot; }
-futures-io = { git = &quot;https://github.com/alexcrichton/futures-rs&quot; }
-futures-mio = { git = &quot;https://github.com/alexcrichton/futures-rs&quot; }
-futures-curl = { git = &quot;https://github.com/alexcrichton/futures-rs&quot; }
-curl = &quot;0.3&quot;
-</code></pre>
-
-<p>OK, so at least we have something working.</p>
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">curl</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">futures</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">futures_curl</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">futures_mio</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">io</span>::<span class="n">Write</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">curl</span>::<span class="n">easy</span>::<span class="n">Easy</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">futures_mio</span>::<span class="n">Loop</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">futures_curl</span>::<span class="n">Session</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// Create an event loop that we&#39;ll run on, as well as an HTTP `Session`
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="c1">// which we&#39;ll be routing all requests through.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">lp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Loop</span>::<span class="n">new</span><span class="p">().</span><span class="n">unwrap</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">sess</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Session</span>::<span class="n">new</span><span class="p">(</span><span class="n">lp</span><span class="p">.</span><span class="n">pin</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">req</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Easy</span>::<span class="n">new</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">req</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="kc">true</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">req</span><span class="p">.</span><span class="n">url</span><span class="p">(</span><span class="s">&#34;https://www.rust-lang.org&#34;</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">req</span><span class="p">.</span><span class="n">write_function</span><span class="p">(</span><span class="o">|</span><span class="n">data</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">std</span>::<span class="n">io</span>::<span class="n">stdout</span><span class="p">().</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nb">Ok</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">len</span><span class="p">())</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">})</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="n">unwrap</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">lp</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">sess</span><span class="p">.</span><span class="n">perform</span><span class="p">(</span><span class="n">req</span><span class="p">)).</span><span class="n">unwrap</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>And <code>Cargo.toml</code>:</p>
+<pre tabindex="0"><code>[dependencies]
+futures = { git = &#34;https://github.com/alexcrichton/futures-rs&#34; }
+futures-io = { git = &#34;https://github.com/alexcrichton/futures-rs&#34; }
+futures-mio = { git = &#34;https://github.com/alexcrichton/futures-rs&#34; }
+futures-curl = { git = &#34;https://github.com/alexcrichton/futures-rs&#34; }
+curl = &#34;0.3&#34;
+</code></pre><p>OK, so at least we have something working.</p>
 <h1 id="improvements">Improvements</h1>
-
 <p>However, to be any useful as a library, the code has to reside in its own function and return the
 output as a <code>String</code> instead of printing it to the screen. The first part is easy, move the code
 that creates <code>req</code> to a new function and tada, done. However, the second part is slightly harder
 because of the write function.</p>
-
 <p>The write function may be called multiple times with partial data and each time, it has to write
 those bytes somewhere. The problem is, where? If we declare a <code>Vec&lt;u8&gt;</code> on the stack, it would be
 lost as soon as the function returned (which would be very soon since everything is async).</p>
-
 <p>Thus it needs to be on the heap. But a simple <code>Box</code> wouldn&rsquo;t do because it needs to be accessed
 from two places, the write function and the point where the complete <code>Vec&lt;u8&gt;</code> is converted to a
 <code>String</code>. The ownership would be unclear.</p>
-
 <p>OK! <code>Rc&lt;RefCell&lt;Vec&lt;u8&gt;&gt;&gt;</code> it must be then. Unfortunately, no. Look at where we reached so far:</p>
-<div class="highlight"><pre><code class="language-rust" data-lang="rust"><span></span><span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">curl</span><span class="p">;</span><span class="w"></span>
-<span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">futures</span><span class="p">;</span><span class="w"></span>
-<span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">futures_curl</span><span class="p">;</span><span class="w"></span>
-<span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">futures_io</span><span class="p">;</span><span class="w"></span>
-<span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">futures_mio</span><span class="p">;</span><span class="w"></span>
-
-<span class="kn">use</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">io</span><span class="o">::</span><span class="n">Write</span><span class="p">;</span><span class="w"></span>
-<span class="kn">use</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">rc</span><span class="o">::</span><span class="n">Rc</span><span class="p">;</span><span class="w"></span>
-<span class="kn">use</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cell</span><span class="o">::</span><span class="n">RefCell</span><span class="p">;</span><span class="w"></span>
-
-<span class="kn">use</span><span class="w"> </span><span class="n">curl</span><span class="o">::</span><span class="n">easy</span><span class="o">::</span><span class="n">Easy</span><span class="p">;</span><span class="w"></span>
-<span class="kn">use</span><span class="w"> </span><span class="n">futures</span><span class="o">::</span><span class="p">{</span><span class="n">BoxFuture</span><span class="p">,</span><span class="w"> </span><span class="n">Future</span><span class="p">};</span><span class="w"></span>
-<span class="kn">use</span><span class="w"> </span><span class="n">futures_io</span><span class="o">::</span><span class="n">IoFuture</span><span class="p">;</span><span class="w"></span>
-<span class="kn">use</span><span class="w"> </span><span class="n">futures_mio</span><span class="o">::</span><span class="n">Loop</span><span class="p">;</span><span class="w"></span>
-<span class="kn">use</span><span class="w"> </span><span class="n">futures_curl</span><span class="o">::</span><span class="n">Session</span><span class="p">;</span><span class="w"></span>
-
-<span class="k">fn</span><span class="w"> </span><span class="n">get_page</span><span class="p">(</span><span class="n">sess</span><span class="o">:</span><span class="w"> </span><span class="n">Session</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">BoxFuture</span><span class="o">&lt;</span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">io</span><span class="o">::</span><span class="n">Error</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Rc</span><span class="o">::</span><span class="n">new</span><span class="p">(</span><span class="n">RefCell</span><span class="o">::</span><span class="n">new</span><span class="p">(</span><span class="nb">Vec</span><span class="o">::</span><span class="n">new</span><span class="p">()));</span><span class="w"></span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">response1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">clone</span><span class="p">();</span><span class="w"></span>
-
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">req</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Easy</span><span class="o">::</span><span class="n">new</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="n">req</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="k">true</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="n">req</span><span class="p">.</span><span class="n">url</span><span class="p">(</span><span class="s">&quot;https://www.rust-lang.org&quot;</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
-
-<span class="w">    </span><span class="n">req</span><span class="p">.</span><span class="n">write_function</span><span class="p">(</span><span class="n">move</span><span class="w"> </span><span class="o">|</span><span class="n">data</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">response1</span><span class="p">.</span><span class="n">borrow_mut</span><span class="p">().</span><span class="n">extend_from_slice</span><span class="p">(</span><span class="n">data</span><span class="p">);</span><span class="w"></span>
-<span class="w">            </span><span class="nb">Ok</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">len</span><span class="p">())</span><span class="w"></span>
-<span class="w">        </span><span class="p">})</span><span class="w"></span>
-<span class="w">        </span><span class="p">.</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
-
-<span class="w">    </span><span class="n">sess</span><span class="p">.</span><span class="n">perform</span><span class="p">(</span><span class="n">req</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="n">move</span><span class="w"> </span><span class="o">|</span><span class="n">_</span><span class="o">|</span><span class="w"> </span><span class="nb">String</span><span class="o">::</span><span class="n">from_utf8_lossy</span><span class="p">(</span><span class="o">&amp;*</span><span class="n">response</span><span class="p">.</span><span class="n">borrow</span><span class="p">()).</span><span class="n">into_owned</span><span class="p">())</span><span class="w"></span>
-<span class="w">        </span><span class="p">.</span><span class="n">boxed</span><span class="p">()</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-
-<span class="k">fn</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// Create an event loop that we&#39;ll run on, as well as an HTTP `Session`</span>
-<span class="w">    </span><span class="c1">// which we&#39;ll be routing all requests through.</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">lp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Loop</span><span class="o">::</span><span class="n">new</span><span class="p">().</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">session</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Session</span><span class="o">::</span><span class="n">new</span><span class="p">(</span><span class="n">lp</span><span class="p">.</span><span class="n">pin</span><span class="p">());</span><span class="w"></span>
-
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_page</span><span class="p">(</span><span class="n">session</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lp</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">f</span><span class="p">).</span><span class="n">unwrap</span><span class="p">());</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</code></pre></div>
-
-<p>Try compiling it and the compiler will complain that the <code>Send</code> trait isn&rsquo;t satisfied by response.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">curl</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">futures</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">futures_curl</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">futures_io</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">futures_mio</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">io</span>::<span class="n">Write</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">rc</span>::<span class="n">Rc</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">cell</span>::<span class="n">RefCell</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">curl</span>::<span class="n">easy</span>::<span class="n">Easy</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">futures</span>::<span class="p">{</span><span class="n">BoxFuture</span><span class="p">,</span><span class="w"> </span><span class="n">Future</span><span class="p">};</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">futures_io</span>::<span class="n">IoFuture</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">futures_mio</span>::<span class="n">Loop</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">futures_curl</span>::<span class="n">Session</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">fn</span> <span class="nf">get_page</span><span class="p">(</span><span class="n">sess</span>: <span class="nc">Session</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">BoxFuture</span><span class="o">&lt;</span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="n">std</span>::<span class="n">io</span>::<span class="n">Error</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Rc</span>::<span class="n">new</span><span class="p">(</span><span class="n">RefCell</span>::<span class="n">new</span><span class="p">(</span><span class="nb">Vec</span>::<span class="n">new</span><span class="p">()));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">response1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">clone</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">req</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Easy</span>::<span class="n">new</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">req</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="kc">true</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">req</span><span class="p">.</span><span class="n">url</span><span class="p">(</span><span class="s">&#34;https://www.rust-lang.org&#34;</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">req</span><span class="p">.</span><span class="n">write_function</span><span class="p">(</span><span class="k">move</span><span class="w"> </span><span class="o">|</span><span class="n">data</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">response1</span><span class="p">.</span><span class="n">borrow_mut</span><span class="p">().</span><span class="n">extend_from_slice</span><span class="p">(</span><span class="n">data</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nb">Ok</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">len</span><span class="p">())</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">})</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="n">unwrap</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">sess</span><span class="p">.</span><span class="n">perform</span><span class="p">(</span><span class="n">req</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="k">move</span><span class="w"> </span><span class="o">|</span><span class="n">_</span><span class="o">|</span><span class="w"> </span><span class="nb">String</span>::<span class="n">from_utf8_lossy</span><span class="p">(</span><span class="o">&amp;*</span><span class="n">response</span><span class="p">.</span><span class="n">borrow</span><span class="p">()).</span><span class="n">into_owned</span><span class="p">())</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="n">boxed</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// Create an event loop that we&#39;ll run on, as well as an HTTP `Session`
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="c1">// which we&#39;ll be routing all requests through.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">lp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Loop</span>::<span class="n">new</span><span class="p">().</span><span class="n">unwrap</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">session</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Session</span>::<span class="n">new</span><span class="p">(</span><span class="n">lp</span><span class="p">.</span><span class="n">pin</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_page</span><span class="p">(</span><span class="n">session</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&#34;</span><span class="si">{}</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">lp</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">f</span><span class="p">).</span><span class="n">unwrap</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>Try compiling it and the compiler will complain that the <code>Send</code> trait isn&rsquo;t satisfied by response.
 <code>Send</code> is a marker trait that marks that the data is thread-safe. Unfortunately, <code>Rc</code> isn&rsquo;t
 thread-safe as the internal reference count could be mutated by two threads at the same time
 resulting in race conditions.</p>
-
 <p>OK, so we switch to <code>Arc&lt;Mutex&lt;Vec&lt;u8&gt;&gt;&gt;</code> instead of <code>Rc&lt;RefCell&lt;Vec&lt;u8&gt;&gt;&gt;</code>. And that works
 beautifully:</p>
-<div class="highlight"><pre><code class="language-rust" data-lang="rust"><span></span><span class="k">fn</span><span class="w"> </span><span class="n">get_page</span><span class="p">(</span><span class="n">sess</span><span class="o">:</span><span class="w"> </span><span class="n">Session</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">BoxFuture</span><span class="o">&lt;</span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">io</span><span class="o">::</span><span class="n">Error</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arc</span><span class="o">::</span><span class="n">new</span><span class="p">(</span><span class="n">Mutex</span><span class="o">::</span><span class="n">new</span><span class="p">(</span><span class="nb">Vec</span><span class="o">::</span><span class="n">new</span><span class="p">()));</span><span class="w"></span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">response1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">clone</span><span class="p">();</span><span class="w"></span>
-
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">req</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Easy</span><span class="o">::</span><span class="n">new</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="n">req</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="k">true</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="n">req</span><span class="p">.</span><span class="n">url</span><span class="p">(</span><span class="s">&quot;https://www.rust-lang.org&quot;</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
-
-<span class="w">    </span><span class="n">req</span><span class="p">.</span><span class="n">write_function</span><span class="p">(</span><span class="n">move</span><span class="w"> </span><span class="o">|</span><span class="n">data</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">response1</span><span class="p">.</span><span class="n">lock</span><span class="p">().</span><span class="n">unwrap</span><span class="p">().</span><span class="n">extend_from_slice</span><span class="p">(</span><span class="n">data</span><span class="p">);</span><span class="w"></span>
-<span class="w">            </span><span class="nb">Ok</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">len</span><span class="p">())</span><span class="w"></span>
-<span class="w">        </span><span class="p">})</span><span class="w"></span>
-<span class="w">        </span><span class="p">.</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
-
-<span class="w">    </span><span class="n">sess</span><span class="p">.</span><span class="n">perform</span><span class="p">(</span><span class="n">req</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="n">move</span><span class="w"> </span><span class="o">|</span><span class="n">_</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">lock</span><span class="p">().</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
-<span class="w">            </span><span class="nb">String</span><span class="o">::</span><span class="n">from</span><span class="p">(</span><span class="nb">String</span><span class="o">::</span><span class="n">from_utf8_lossy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">s</span><span class="p">).</span><span class="n">into_owned</span><span class="p">())</span><span class="w"></span>
-<span class="w">        </span><span class="p">})</span><span class="w"></span>
-<span class="w">        </span><span class="p">.</span><span class="n">boxed</span><span class="p">()</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</code></pre></div>
-
-<p>Now, can we do better? Of course! Now, remember that the only thread that&rsquo;s going to be accessing
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="k">fn</span> <span class="nf">get_page</span><span class="p">(</span><span class="n">sess</span>: <span class="nc">Session</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">BoxFuture</span><span class="o">&lt;</span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="n">std</span>::<span class="n">io</span>::<span class="n">Error</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arc</span>::<span class="n">new</span><span class="p">(</span><span class="n">Mutex</span>::<span class="n">new</span><span class="p">(</span><span class="nb">Vec</span>::<span class="n">new</span><span class="p">()));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">response1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">clone</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">req</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Easy</span>::<span class="n">new</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">req</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="kc">true</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">req</span><span class="p">.</span><span class="n">url</span><span class="p">(</span><span class="s">&#34;https://www.rust-lang.org&#34;</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">req</span><span class="p">.</span><span class="n">write_function</span><span class="p">(</span><span class="k">move</span><span class="w"> </span><span class="o">|</span><span class="n">data</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">response1</span><span class="p">.</span><span class="n">lock</span><span class="p">().</span><span class="n">unwrap</span><span class="p">().</span><span class="n">extend_from_slice</span><span class="p">(</span><span class="n">data</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nb">Ok</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">len</span><span class="p">())</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">})</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="n">unwrap</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">sess</span><span class="p">.</span><span class="n">perform</span><span class="p">(</span><span class="n">req</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="k">move</span><span class="w"> </span><span class="o">|</span><span class="n">_</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">lock</span><span class="p">().</span><span class="n">unwrap</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nb">String</span>::<span class="n">from</span><span class="p">(</span><span class="nb">String</span>::<span class="n">from_utf8_lossy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">s</span><span class="p">).</span><span class="n">into_owned</span><span class="p">())</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">})</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="n">boxed</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>Now, can we do better? Of course! Now, remember that the only thread that&rsquo;s going to be accessing
 the response vector is the one running the event loop. Locking and unlocking a <code>Mutex</code> are
 expensive operations so we don&rsquo;t really need <code>Mutex</code> except to satisfy the <code>Send</code> marker trait.
 Fortunately <code>futures-mio</code> offers a <code>LoopData</code> struct built for this very purpose. But we also need
 to add a <code>RefCell</code> in as the data held by <code>LoopData</code> isn&rsquo;t mutable.</p>
-
 <p>The result so far:</p>
-<div class="highlight"><pre><code class="language-rust" data-lang="rust"><span></span><span class="k">fn</span><span class="w"> </span><span class="n">get_page</span><span class="p">(</span><span class="n">lp</span><span class="o">:</span><span class="w"> </span><span class="n">LoopPin</span><span class="p">,</span><span class="w"> </span><span class="n">sess</span><span class="o">:</span><span class="w"> </span><span class="n">Session</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">BoxFuture</span><span class="o">&lt;</span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">io</span><span class="o">::</span><span class="n">Error</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arc</span><span class="o">::</span><span class="n">new</span><span class="p">(</span><span class="n">lp</span><span class="p">.</span><span class="n">add_loop_data</span><span class="p">(</span><span class="n">RefCell</span><span class="o">::</span><span class="n">new</span><span class="p">(</span><span class="nb">Vec</span><span class="o">::</span><span class="n">new</span><span class="p">())));</span><span class="w"></span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">response1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">clone</span><span class="p">();</span><span class="w"></span>
-
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">req</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Easy</span><span class="o">::</span><span class="n">new</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="n">req</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="k">true</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="n">req</span><span class="p">.</span><span class="n">url</span><span class="p">(</span><span class="s">&quot;https://www.rust-lang.org&quot;</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
-
-<span class="w">    </span><span class="n">req</span><span class="p">.</span><span class="n">write_function</span><span class="p">(</span><span class="n">move</span><span class="w"> </span><span class="o">|</span><span class="n">data</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">response1</span><span class="p">.</span><span class="n">get</span><span class="p">().</span><span class="n">unwrap</span><span class="p">().</span><span class="n">borrow_mut</span><span class="p">().</span><span class="n">extend_from_slice</span><span class="p">(</span><span class="n">data</span><span class="p">);</span><span class="w"></span>
-<span class="w">            </span><span class="nb">Ok</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">len</span><span class="p">())</span><span class="w"></span>
-<span class="w">        </span><span class="p">})</span><span class="w"></span>
-<span class="w">        </span><span class="p">.</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
-
-<span class="w">    </span><span class="n">sess</span><span class="p">.</span><span class="n">perform</span><span class="p">(</span><span class="n">req</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="n">move</span><span class="w"> </span><span class="o">|</span><span class="n">_</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">get</span><span class="p">().</span><span class="n">unwrap</span><span class="p">().</span><span class="n">borrow</span><span class="p">();</span><span class="w"></span>
-<span class="w">            </span><span class="nb">String</span><span class="o">::</span><span class="n">from</span><span class="p">(</span><span class="nb">String</span><span class="o">::</span><span class="n">from_utf8_lossy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">s</span><span class="p">).</span><span class="n">into_owned</span><span class="p">())</span><span class="w"></span>
-<span class="w">        </span><span class="p">})</span><span class="w"></span>
-<span class="w">        </span><span class="p">.</span><span class="n">boxed</span><span class="p">()</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</code></pre></div>
-
-<p>Everything so far works but only on a single thread and just for a single function. <code>LoopPin</code>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="k">fn</span> <span class="nf">get_page</span><span class="p">(</span><span class="n">lp</span>: <span class="nc">LoopPin</span><span class="p">,</span><span class="w"> </span><span class="n">sess</span>: <span class="nc">Session</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">BoxFuture</span><span class="o">&lt;</span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="n">std</span>::<span class="n">io</span>::<span class="n">Error</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arc</span>::<span class="n">new</span><span class="p">(</span><span class="n">lp</span><span class="p">.</span><span class="n">add_loop_data</span><span class="p">(</span><span class="n">RefCell</span>::<span class="n">new</span><span class="p">(</span><span class="nb">Vec</span>::<span class="n">new</span><span class="p">())));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">response1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">clone</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">req</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Easy</span>::<span class="n">new</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">req</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="kc">true</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">req</span><span class="p">.</span><span class="n">url</span><span class="p">(</span><span class="s">&#34;https://www.rust-lang.org&#34;</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">req</span><span class="p">.</span><span class="n">write_function</span><span class="p">(</span><span class="k">move</span><span class="w"> </span><span class="o">|</span><span class="n">data</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">response1</span><span class="p">.</span><span class="n">get</span><span class="p">().</span><span class="n">unwrap</span><span class="p">().</span><span class="n">borrow_mut</span><span class="p">().</span><span class="n">extend_from_slice</span><span class="p">(</span><span class="n">data</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nb">Ok</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">len</span><span class="p">())</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">})</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="n">unwrap</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">sess</span><span class="p">.</span><span class="n">perform</span><span class="p">(</span><span class="n">req</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="k">move</span><span class="w"> </span><span class="o">|</span><span class="n">_</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">get</span><span class="p">().</span><span class="n">unwrap</span><span class="p">().</span><span class="n">borrow</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nb">String</span>::<span class="n">from</span><span class="p">(</span><span class="nb">String</span>::<span class="n">from_utf8_lossy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">s</span><span class="p">).</span><span class="n">into_owned</span><span class="p">())</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">})</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="n">boxed</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>Everything so far works but only on a single thread and just for a single function. <code>LoopPin</code>
 doesn&rsquo;t implement <code>Send</code> so <code>get_page</code> can only be called from the same thread as the event loop
 itself. Utterly useless for a real application.</p>
-
 <h1 id="almost-there">Almost There</h1>
-
 <p>We need to do better. In particular, <code>Session</code> is thread-safe and so is <code>LoopHandle</code>. So the
 signature of our updated function needs to be:</p>
-<div class="highlight"><pre><code class="language-rust" data-lang="rust"><span></span><span class="k">fn</span><span class="w"> </span><span class="n">get_page</span><span class="p">(</span><span class="n">lph</span><span class="o">:</span><span class="w"> </span><span class="n">LoopHandle</span><span class="p">,</span><span class="w"> </span><span class="n">sess</span><span class="o">:</span><span class="w"> </span><span class="n">Session</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">BoxFuture</span><span class="o">&lt;</span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">io</span><span class="o">::</span><span class="n">Error</span><span class="o">&gt;</span><span class="w"> </span>
-</code></pre></div>
-
-<p>Moreover, we need to run the event loop on a separate thread and pass <code>LoopHandle</code> and <code>Session</code> to
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="k">fn</span> <span class="nf">get_page</span><span class="p">(</span><span class="n">lph</span>: <span class="nc">LoopHandle</span><span class="p">,</span><span class="w"> </span><span class="n">sess</span>: <span class="nc">Session</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">BoxFuture</span><span class="o">&lt;</span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="n">std</span>::<span class="n">io</span>::<span class="n">Error</span><span class="o">&gt;</span><span class="w"> 
+</span></span></span></code></pre></div><p>Moreover, we need to run the event loop on a separate thread and pass <code>LoopHandle</code> and <code>Session</code> to
 the main thread somehow. And since both these structs are <code>Clone</code>able and <code>Send</code>able, our <code>get_page</code>
 could be called from multiple threads and still be perfectly asynchronous with all I/O events
 passing through our event loop.</p>
-
 <p>Not to forget, we must wrap everything in a nice looking struct so that we don&rsquo;t need to pass
 <code>LoopHandle</code>, <code>Session</code> and other API information every time.</p>
-
 <h1 id="the-final-version">The Final Version</h1>
-
 <p>The final version with a few other additions like a couple of sanity checks and getting headers
 along with the response is as follows:</p>
-<div class="highlight"><pre><code class="language-rust" data-lang="rust"><span></span><span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">curl</span><span class="p">;</span><span class="w"></span>
-<span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">futures</span><span class="p">;</span><span class="w"></span>
-<span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">futures_curl</span><span class="p">;</span><span class="w"></span>
-<span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">futures_io</span><span class="p">;</span><span class="w"></span>
-<span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">futures_mio</span><span class="p">;</span><span class="w"></span>
-<span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">time</span><span class="p">;</span><span class="w"></span>
-
-<span class="kn">use</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">sync</span><span class="o">::</span><span class="n">Arc</span><span class="p">;</span><span class="w"></span>
-<span class="kn">use</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cell</span><span class="o">::</span><span class="n">RefCell</span><span class="p">;</span><span class="w"></span>
-<span class="kn">use</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">thread</span><span class="p">;</span><span class="w"></span>
-<span class="kn">use</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">sync</span><span class="o">::</span><span class="n">mpsc</span><span class="p">;</span><span class="w"></span>
-
-<span class="kn">use</span><span class="w"> </span><span class="n">curl</span><span class="o">::</span><span class="n">easy</span><span class="o">::</span><span class="n">Easy</span><span class="p">;</span><span class="w"></span>
-<span class="kn">use</span><span class="w"> </span><span class="n">futures</span><span class="o">::</span><span class="p">{</span><span class="n">BoxFuture</span><span class="p">,</span><span class="w"> </span><span class="n">Future</span><span class="p">};</span><span class="w"></span>
-<span class="kn">use</span><span class="w"> </span><span class="n">futures_mio</span><span class="o">::</span><span class="p">{</span><span class="n">Loop</span><span class="p">,</span><span class="w"> </span><span class="n">LoopHandle</span><span class="p">};</span><span class="w"></span>
-<span class="kn">use</span><span class="w"> </span><span class="n">futures_curl</span><span class="o">::</span><span class="n">Session</span><span class="p">;</span><span class="w"></span>
-
-<span class="k">struct</span><span class="w"> </span><span class="n">Api</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">lp</span><span class="o">:</span><span class="w"> </span><span class="n">LoopHandle</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="n">sess</span><span class="o">:</span><span class="w"> </span><span class="n">Session</span><span class="p">,</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-
-<span class="k">impl</span><span class="w"> </span><span class="n">Api</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">new</span><span class="p">(</span><span class="n">lp</span><span class="o">:</span><span class="w"> </span><span class="n">LoopHandle</span><span class="p">,</span><span class="w"> </span><span class="n">sess</span><span class="o">:</span><span class="w"> </span><span class="n">Session</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Api</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">Api</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">lp</span><span class="o">:</span><span class="w"> </span><span class="n">lp</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="n">sess</span><span class="o">:</span><span class="w"> </span><span class="n">sess</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="n">get_page</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">BoxFuture</span><span class="o">&lt;</span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">io</span><span class="o">::</span><span class="n">Error</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-
-<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">sess</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">sess</span><span class="p">.</span><span class="n">clone</span><span class="p">();</span><span class="w"></span>
-
-<span class="w">        </span><span class="c1">// First one for response and second for the headers</span>
-<span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">lp</span><span class="w"></span>
-<span class="w">            </span><span class="p">.</span><span class="n">add_loop_data</span><span class="p">(</span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="n">RefCell</span><span class="o">::</span><span class="n">new</span><span class="p">(</span><span class="nb">Vec</span><span class="o">::&lt;</span><span class="kt">u8</span><span class="o">&gt;::</span><span class="n">new</span><span class="p">()),</span><span class="w"> </span><span class="n">RefCell</span><span class="o">::</span><span class="n">new</span><span class="p">(</span><span class="nb">Vec</span><span class="o">::&lt;</span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">u8</span><span class="o">&gt;&gt;::</span><span class="n">new</span><span class="p">())))</span><span class="w"></span>
-<span class="w">            </span><span class="p">.</span><span class="n">and_then</span><span class="p">(</span><span class="n">move</span><span class="w"> </span><span class="o">|</span><span class="n">data</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="kd">let</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arc</span><span class="o">::</span><span class="n">new</span><span class="p">(</span><span class="n">data</span><span class="p">);</span><span class="w"></span>
-
-<span class="w">                </span><span class="kd">let</span><span class="w"> </span><span class="n">data1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">clone</span><span class="p">();</span><span class="w"></span>
-<span class="w">                </span><span class="kd">let</span><span class="w"> </span><span class="n">data2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">clone</span><span class="p">();</span><span class="w"></span>
-
-<span class="w">                </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">req</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Easy</span><span class="o">::</span><span class="n">new</span><span class="p">();</span><span class="w"></span>
-<span class="w">                </span><span class="n">req</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="k">true</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
-<span class="w">                </span><span class="n">req</span><span class="p">.</span><span class="n">url</span><span class="p">(</span><span class="s">&quot;https://www.rust-lang.org&quot;</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
-
-<span class="w">                </span><span class="n">req</span><span class="p">.</span><span class="n">write_function</span><span class="p">(</span><span class="n">move</span><span class="w"> </span><span class="o">|</span><span class="n">d</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                        </span><span class="n">data1</span><span class="p">.</span><span class="n">get</span><span class="p">().</span><span class="n">unwrap</span><span class="p">().</span><span class="mf">0.</span><span class="n">borrow_mut</span><span class="p">().</span><span class="n">extend_from_slice</span><span class="p">(</span><span class="n">d</span><span class="p">);</span><span class="w"></span>
-<span class="w">                        </span><span class="nb">Ok</span><span class="p">(</span><span class="n">d</span><span class="p">.</span><span class="n">len</span><span class="p">())</span><span class="w"></span>
-<span class="w">                    </span><span class="p">})</span><span class="w"></span>
-<span class="w">                    </span><span class="p">.</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
-
-<span class="w">                </span><span class="n">req</span><span class="p">.</span><span class="n">header_function</span><span class="p">(</span><span class="n">move</span><span class="w"> </span><span class="o">|</span><span class="n">header</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                        </span><span class="n">data2</span><span class="p">.</span><span class="n">get</span><span class="p">().</span><span class="n">unwrap</span><span class="p">().</span><span class="mf">1.</span><span class="n">borrow_mut</span><span class="p">().</span><span class="n">push</span><span class="p">(</span><span class="n">header</span><span class="p">.</span><span class="n">to_vec</span><span class="p">());</span><span class="w"></span>
-<span class="w">                        </span><span class="k">true</span><span class="w"></span>
-<span class="w">                    </span><span class="p">})</span><span class="w"></span>
-<span class="w">                    </span><span class="p">.</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
-
-<span class="w">                </span><span class="n">sess</span><span class="p">.</span><span class="n">perform</span><span class="p">(</span><span class="n">req</span><span class="p">)</span><span class="w"></span>
-<span class="w">                    </span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="n">move</span><span class="w"> </span><span class="o">|</span><span class="p">(</span><span class="k">mut</span><span class="w"> </span><span class="n">resp</span><span class="p">,</span><span class="w"> </span><span class="n">err</span><span class="p">)</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                        </span><span class="n">assert</span><span class="o">!</span><span class="p">(</span><span class="n">err</span><span class="p">.</span><span class="n">is_none</span><span class="p">());</span><span class="w"></span>
-<span class="w">                        </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="n">resp</span><span class="p">.</span><span class="n">response_code</span><span class="p">().</span><span class="n">unwrap</span><span class="p">(),</span><span class="w"> </span><span class="mi">200</span><span class="p">);</span><span class="w"></span>
-
-<span class="w">                        </span><span class="kd">let</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">get</span><span class="p">().</span><span class="n">unwrap</span><span class="p">().</span><span class="mf">0.</span><span class="n">borrow</span><span class="p">();</span><span class="w"></span>
-<span class="w">                        </span><span class="kd">let</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span><span class="o">::</span><span class="n">from_utf8_lossy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">response</span><span class="p">);</span><span class="w"></span>
-<span class="w">                        </span><span class="n">assert</span><span class="o">!</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="s">&quot;&lt;html&gt;&quot;</span><span class="p">));</span><span class="w"></span>
-<span class="w">                        </span><span class="kd">let</span><span class="w"> </span><span class="n">headers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="w"></span>
-<span class="w">                            </span><span class="p">.</span><span class="n">unwrap</span><span class="p">()</span><span class="w"></span>
-<span class="w">                            </span><span class="p">.</span><span class="mi">1</span><span class="w"></span>
-<span class="w">                            </span><span class="p">.</span><span class="n">borrow</span><span class="p">()</span><span class="w"></span>
-<span class="w">                            </span><span class="p">.</span><span class="n">iter</span><span class="p">()</span><span class="w"></span>
-<span class="w">                            </span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="o">|</span><span class="n">h</span><span class="o">|</span><span class="w"> </span><span class="nb">String</span><span class="o">::</span><span class="n">from</span><span class="p">(</span><span class="nb">String</span><span class="o">::</span><span class="n">from_utf8_lossy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">h</span><span class="p">).</span><span class="n">trim</span><span class="p">()))</span><span class="w"></span>
-<span class="w">                            </span><span class="p">.</span><span class="n">fold</span><span class="p">(</span><span class="nb">String</span><span class="o">::</span><span class="n">new</span><span class="p">(),</span><span class="w"> </span><span class="o">|</span><span class="n">acc</span><span class="p">,</span><span class="w"> </span><span class="n">elem</span><span class="o">|</span><span class="w"> </span><span class="n">acc</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="o">&amp;</span><span class="n">elem</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">                        </span><span class="n">assert</span><span class="o">!</span><span class="p">(</span><span class="n">headers</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
-
-<span class="w">                        </span><span class="n">format</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;Headers:</span><span class="se">\n\n</span><span class="s">{}</span><span class="se">\n\n</span><span class="s">Response:</span><span class="se">\n\n</span><span class="s">{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">headers</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">)</span><span class="w"></span>
-<span class="w">                    </span><span class="p">})</span><span class="w"></span>
-<span class="w">            </span><span class="p">})</span><span class="w"></span>
-<span class="w">            </span><span class="p">.</span><span class="n">boxed</span><span class="p">()</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-
-<span class="k">fn</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="p">(</span><span class="n">tx</span><span class="p">,</span><span class="w"> </span><span class="n">rx</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mpsc</span><span class="o">::</span><span class="n">channel</span><span class="p">();</span><span class="w"></span>
-
-<span class="w">    </span><span class="c1">// Make sure the event loop runs forever in a new thread.</span>
-<span class="w">    </span><span class="n">thread</span><span class="o">::</span><span class="n">spawn</span><span class="p">(</span><span class="n">move</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// Create an event loop that we&#39;ll run on, as well as an HTTP `Session`</span>
-<span class="w">        </span><span class="c1">// which we&#39;ll be routing all requests through.</span>
-<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">lp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Loop</span><span class="o">::</span><span class="n">new</span><span class="p">().</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
-
-<span class="w">        </span><span class="c1">// Send loop handler and Session to the main thread so that async curl requests can be</span>
-<span class="w">        </span><span class="c1">// made.</span>
-<span class="w">        </span><span class="n">tx</span><span class="p">.</span><span class="n">send</span><span class="p">((</span><span class="n">lp</span><span class="p">.</span><span class="n">handle</span><span class="p">(),</span><span class="w"> </span><span class="n">Session</span><span class="o">::</span><span class="n">new</span><span class="p">(</span><span class="n">lp</span><span class="p">.</span><span class="n">pin</span><span class="p">()))).</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
-
-<span class="w">        </span><span class="n">lp</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">futures</span><span class="o">::</span><span class="n">empty</span><span class="o">::&lt;</span><span class="p">(),</span><span class="w"> </span><span class="p">()</span><span class="o">&gt;</span><span class="p">())</span><span class="w"> </span><span class="c1">// Keep the event loop running forever</span>
-<span class="w">            </span><span class="p">.</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="p">});</span><span class="w"></span>
-
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="p">(</span><span class="n">lph</span><span class="p">,</span><span class="w"> </span><span class="n">sess</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rx</span><span class="p">.</span><span class="n">recv</span><span class="p">().</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
-
-<span class="w">    </span><span class="c1">// Create a new API using the loop handle and Session.</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">api</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Api</span><span class="o">::</span><span class="n">new</span><span class="p">(</span><span class="n">lph</span><span class="p">,</span><span class="w"> </span><span class="n">sess</span><span class="p">);</span><span class="w"></span>
-
-<span class="w">    </span><span class="c1">// Wait for the page and quit.</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">await</span><span class="p">(</span><span class="n">api</span><span class="p">.</span><span class="n">get_page</span><span class="p">());</span><span class="w"></span>
-<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="n">unwrap</span><span class="p">());</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-
-<span class="c1">// Taken from tokio and modified to compile with upstream changes.</span>
-<span class="c1">// We don&#39;t use Future.wait() because it pins the Future to the current thread and that messes up</span>
-<span class="c1">// LoopData.get().</span>
-<span class="k">fn</span><span class="w"> </span><span class="n">await</span><span class="o">&lt;</span><span class="n">T</span><span class="o">:</span><span class="w"> </span><span class="n">Future</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">Send</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">&#39;static</span><span class="o">&gt;</span><span class="p">(</span><span class="n">f</span><span class="o">:</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb">Result</span><span class="o">&lt;</span><span class="n">T</span><span class="o">::</span><span class="n">Item</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">::</span><span class="n">Error</span><span class="o">&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="n">where</span><span class="w"> </span><span class="n">T</span><span class="o">::</span><span class="n">Item</span><span class="o">:</span><span class="w"> </span><span class="nb">Send</span><span class="p">,</span><span class="w"></span>
-<span class="w">          </span><span class="n">T</span><span class="o">::</span><span class="n">Error</span><span class="o">:</span><span class="w"> </span><span class="nb">Send</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="p">(</span><span class="n">tx</span><span class="p">,</span><span class="w"> </span><span class="n">rx</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mpsc</span><span class="o">::</span><span class="n">channel</span><span class="p">();</span><span class="w"></span>
-
-<span class="w">    </span><span class="n">f</span><span class="p">.</span><span class="n">then</span><span class="p">(</span><span class="n">move</span><span class="w"> </span><span class="o">|</span><span class="n">res</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">tx</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">res</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
-<span class="w">            </span><span class="nb">Ok</span><span class="o">::&lt;</span><span class="p">(),</span><span class="w"> </span><span class="p">()</span><span class="o">&gt;</span><span class="p">(())</span><span class="w"></span>
-<span class="w">        </span><span class="p">})</span><span class="w"></span>
-<span class="w">        </span><span class="p">.</span><span class="n">forget</span><span class="p">();</span><span class="w"></span>
-
-<span class="w">    </span><span class="n">rx</span><span class="p">.</span><span class="n">recv</span><span class="p">().</span><span class="n">unwrap</span><span class="p">()</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</code></pre></div>
-
-<h1 id="conclusion">Conclusion</h1>
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">curl</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">futures</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">futures_curl</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">futures_io</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">futures_mio</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">time</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">sync</span>::<span class="n">Arc</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">cell</span>::<span class="n">RefCell</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">thread</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">sync</span>::<span class="n">mpsc</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">curl</span>::<span class="n">easy</span>::<span class="n">Easy</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">futures</span>::<span class="p">{</span><span class="n">BoxFuture</span><span class="p">,</span><span class="w"> </span><span class="n">Future</span><span class="p">};</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">futures_mio</span>::<span class="p">{</span><span class="n">Loop</span><span class="p">,</span><span class="w"> </span><span class="n">LoopHandle</span><span class="p">};</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">futures_curl</span>::<span class="n">Session</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">struct</span> <span class="nc">Api</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">lp</span>: <span class="nc">LoopHandle</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">sess</span>: <span class="nc">Session</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">impl</span><span class="w"> </span><span class="n">Api</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">fn</span> <span class="nf">new</span><span class="p">(</span><span class="n">lp</span>: <span class="nc">LoopHandle</span><span class="p">,</span><span class="w"> </span><span class="n">sess</span>: <span class="nc">Session</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">Api</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Api</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">lp</span>: <span class="nc">lp</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">sess</span>: <span class="nc">sess</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">fn</span> <span class="nf">get_page</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">BoxFuture</span><span class="o">&lt;</span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="n">std</span>::<span class="n">io</span>::<span class="n">Error</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">sess</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">sess</span><span class="p">.</span><span class="n">clone</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// First one for response and second for the headers
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">lp</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="n">add_loop_data</span><span class="p">(</span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="n">RefCell</span>::<span class="n">new</span><span class="p">(</span><span class="nb">Vec</span>::<span class="o">&lt;</span><span class="kt">u8</span><span class="o">&gt;</span>::<span class="n">new</span><span class="p">()),</span><span class="w"> </span><span class="n">RefCell</span>::<span class="n">new</span><span class="p">(</span><span class="nb">Vec</span>::<span class="o">&lt;</span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">u8</span><span class="o">&gt;&gt;</span>::<span class="n">new</span><span class="p">())))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="n">and_then</span><span class="p">(</span><span class="k">move</span><span class="w"> </span><span class="o">|</span><span class="n">data</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="kd">let</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arc</span>::<span class="n">new</span><span class="p">(</span><span class="n">data</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="kd">let</span><span class="w"> </span><span class="n">data1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">clone</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="kd">let</span><span class="w"> </span><span class="n">data2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">clone</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">req</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Easy</span>::<span class="n">new</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">req</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="kc">true</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">req</span><span class="p">.</span><span class="n">url</span><span class="p">(</span><span class="s">&#34;https://www.rust-lang.org&#34;</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">req</span><span class="p">.</span><span class="n">write_function</span><span class="p">(</span><span class="k">move</span><span class="w"> </span><span class="o">|</span><span class="n">d</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="n">data1</span><span class="p">.</span><span class="n">get</span><span class="p">().</span><span class="n">unwrap</span><span class="p">().</span><span class="mf">0.</span><span class="n">borrow_mut</span><span class="p">().</span><span class="n">extend_from_slice</span><span class="p">(</span><span class="n">d</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="nb">Ok</span><span class="p">(</span><span class="n">d</span><span class="p">.</span><span class="n">len</span><span class="p">())</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="p">})</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="p">.</span><span class="n">unwrap</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">req</span><span class="p">.</span><span class="n">header_function</span><span class="p">(</span><span class="k">move</span><span class="w"> </span><span class="o">|</span><span class="n">header</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="n">data2</span><span class="p">.</span><span class="n">get</span><span class="p">().</span><span class="n">unwrap</span><span class="p">().</span><span class="mf">1.</span><span class="n">borrow_mut</span><span class="p">().</span><span class="n">push</span><span class="p">(</span><span class="n">header</span><span class="p">.</span><span class="n">to_vec</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="p">})</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="p">.</span><span class="n">unwrap</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">sess</span><span class="p">.</span><span class="n">perform</span><span class="p">(</span><span class="n">req</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="k">move</span><span class="w"> </span><span class="o">|</span><span class="p">(</span><span class="k">mut</span><span class="w"> </span><span class="n">resp</span><span class="p">,</span><span class="w"> </span><span class="n">err</span><span class="p">)</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="fm">assert!</span><span class="p">(</span><span class="n">err</span><span class="p">.</span><span class="n">is_none</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="fm">assert_eq!</span><span class="p">(</span><span class="n">resp</span><span class="p">.</span><span class="n">response_code</span><span class="p">().</span><span class="n">unwrap</span><span class="p">(),</span><span class="w"> </span><span class="mi">200</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="kd">let</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">get</span><span class="p">().</span><span class="n">unwrap</span><span class="p">().</span><span class="mf">0.</span><span class="n">borrow</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="kd">let</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span>::<span class="n">from_utf8_lossy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">response</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="fm">assert!</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="s">&#34;&lt;html&gt;&#34;</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="kd">let</span><span class="w"> </span><span class="n">headers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                            </span><span class="p">.</span><span class="n">unwrap</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                            </span><span class="p">.</span><span class="mi">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                            </span><span class="p">.</span><span class="n">borrow</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                            </span><span class="p">.</span><span class="n">iter</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                            </span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="o">|</span><span class="n">h</span><span class="o">|</span><span class="w"> </span><span class="nb">String</span>::<span class="n">from</span><span class="p">(</span><span class="nb">String</span>::<span class="n">from_utf8_lossy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">h</span><span class="p">).</span><span class="n">trim</span><span class="p">()))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                            </span><span class="p">.</span><span class="n">fold</span><span class="p">(</span><span class="nb">String</span>::<span class="n">new</span><span class="p">(),</span><span class="w"> </span><span class="o">|</span><span class="n">acc</span><span class="p">,</span><span class="w"> </span><span class="n">elem</span><span class="o">|</span><span class="w"> </span><span class="n">acc</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="o">&amp;</span><span class="n">elem</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="fm">assert!</span><span class="p">(</span><span class="n">headers</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="fm">format!</span><span class="p">(</span><span class="s">&#34;Headers:</span><span class="se">\n\n</span><span class="si">{}</span><span class="se">\n\n</span><span class="s">Response:</span><span class="se">\n\n</span><span class="si">{}</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">headers</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="p">})</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">})</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="n">boxed</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="p">(</span><span class="n">tx</span><span class="p">,</span><span class="w"> </span><span class="n">rx</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mpsc</span>::<span class="n">channel</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// Make sure the event loop runs forever in a new thread.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="n">thread</span>::<span class="n">spawn</span><span class="p">(</span><span class="k">move</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// Create an event loop that we&#39;ll run on, as well as an HTTP `Session`
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">        </span><span class="c1">// which we&#39;ll be routing all requests through.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">lp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Loop</span>::<span class="n">new</span><span class="p">().</span><span class="n">unwrap</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// Send loop handler and Session to the main thread so that async curl requests can be
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">        </span><span class="c1">// made.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">        </span><span class="n">tx</span><span class="p">.</span><span class="n">send</span><span class="p">((</span><span class="n">lp</span><span class="p">.</span><span class="n">handle</span><span class="p">(),</span><span class="w"> </span><span class="n">Session</span>::<span class="n">new</span><span class="p">(</span><span class="n">lp</span><span class="p">.</span><span class="n">pin</span><span class="p">()))).</span><span class="n">unwrap</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">lp</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">futures</span>::<span class="n">empty</span>::<span class="o">&lt;</span><span class="p">(),</span><span class="w"> </span><span class="p">()</span><span class="o">&gt;</span><span class="p">())</span><span class="w"> </span><span class="c1">// Keep the event loop running forever
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">            </span><span class="p">.</span><span class="n">unwrap</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">});</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="p">(</span><span class="n">lph</span><span class="p">,</span><span class="w"> </span><span class="n">sess</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rx</span><span class="p">.</span><span class="n">recv</span><span class="p">().</span><span class="n">unwrap</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// Create a new API using the loop handle and Session.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">api</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Api</span>::<span class="n">new</span><span class="p">(</span><span class="n">lph</span><span class="p">,</span><span class="w"> </span><span class="n">sess</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// Wait for the page and quit.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="p">(</span><span class="n">api</span><span class="p">.</span><span class="n">get_page</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&#34;</span><span class="si">{}</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="n">unwrap</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// Taken from tokio and modified to compile with upstream changes.
+</span></span></span><span class="line"><span class="cl"><span class="c1">// We don&#39;t use Future.wait() because it pins the Future to the current thread and that messes up
+</span></span></span><span class="line"><span class="cl"><span class="c1">// LoopData.get().
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">fn</span> <span class="nf">await</span><span class="o">&lt;</span><span class="n">T</span>: <span class="nc">Future</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">Send</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">&#39;static</span><span class="o">&gt;</span><span class="p">(</span><span class="n">f</span>: <span class="nc">T</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nb">Result</span><span class="o">&lt;</span><span class="n">T</span>::<span class="n">Item</span><span class="p">,</span><span class="w"> </span><span class="n">T</span>::<span class="n">Error</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">where</span><span class="w"> </span><span class="n">T</span>::<span class="n">Item</span>: <span class="nb">Send</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="n">T</span>::<span class="n">Error</span>: <span class="nb">Send</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="p">(</span><span class="n">tx</span><span class="p">,</span><span class="w"> </span><span class="n">rx</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mpsc</span>::<span class="n">channel</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">f</span><span class="p">.</span><span class="n">then</span><span class="p">(</span><span class="k">move</span><span class="w"> </span><span class="o">|</span><span class="n">res</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">tx</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">res</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nb">Ok</span>::<span class="o">&lt;</span><span class="p">(),</span><span class="w"> </span><span class="p">()</span><span class="o">&gt;</span><span class="p">(())</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">})</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="n">forget</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">rx</span><span class="p">.</span><span class="n">recv</span><span class="p">().</span><span class="n">unwrap</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h1 id="conclusion">Conclusion</h1>
 <p>Our goal in the beginning was to create a truly async web API wrapper and we have accomplished
 exactly that! But, <a href="https://github.com/alexcrichton/futures-rs/">futures</a> is in constant flux and I
 had to revise this blog post twice even before the first publication to account for API changes.</p>
-
 <p>With Rust, it&rsquo;s great to be able to have zero cost abstractions and a GC free environment but it
 comes at a price: explicitness. I already had experience with C/C++ so lifetimes were easy to
 reason about and accept as necessary. Howewer, what was hard to swallow were the dozen different
 guarantees and marker traits. But I think I understand Rust and its philosophy much better now.
 Can&rsquo;t wait to create more stuff!</p>
-
 <p>Please leave comments if you found this tutorial useful and suggest changes. Afterall, I&rsquo;m still a
 Rust noob.</p>
 
+        
+
+        
+
+        
       </article>
 
-      <ul class="pager blog-pager">
-        
-        <li class="previous">
-          <a href="http://www.ishbir.com/post/2016-06-09-wrapping-a-c-library-in-c&#43;&#43;/" data-toggle="tooltip" data-placement="top" title="Wrapping a C library in C&#43;&#43;">&larr; Previous Post</a>
-        </li>
-        
-        
-      </ul>
-
       
-      <div class="disqus-comments">
-        <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_shortname = 'ishbir';
-    var disqus_identifier = 'http:\/\/www.ishbir.com\/post\/2016-08-14-futures-in-rust\/';
-    var disqus_title = 'Futures in Rust';
-    var disqus_url = 'http:\/\/www.ishbir.com\/post\/2016-08-14-futures-in-rust\/';
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://www.ishbir.com/post/2016-06-09-wrapping-a-c-library-in-c&#43;&#43;/" data-toggle="tooltip" data-placement="top" title="Wrapping a C library in C&#43;&#43;">&larr; Previous Post</a>
+            </li>
+          
+          
+        </ul>
+      
 
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-      </div>
+
       
 
     </div>
   </div>
 </div>
 
-      
-
-    </div>
-
-    <footer>
-  <div class="container beautiful-jekyll-footer">
+      <footer>
+  <div class="container">
+    
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <ul class="list-inline text-center footer-links">
           
           
-          <li>
-            <a href="https://github.com/ishbir" title="GitHub">
-              <span class="fa-stack fa-lg">
-                <i class="fa fa-circle fa-stack-2x"></i>
-                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-              </span>
-            </a>
-          </li>
-          
-		      
-		      
-          <li>
-            <a href="mailto:ishbir@ishbir.com" title="Email me">
-              <span class="fa-stack fa-lg">
-                <i class="fa fa-circle fa-stack-2x"></i>
-                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
-              </span>
-            </a>
-          </li>
-          
-		      
-          <li>
-            <a href="https://linkedin.com/in/ishbir" title="LinkedIn">
-              <span class="fa-stack fa-lg">
-                <i class="fa fa-circle fa-stack-2x"></i>
-                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-              </span>
-            </a>
-          </li>
-          
-	    	  
-          
-          
-
-    		  <li>
-      			<a href="http://www.ishbir.com/index.xml" title="RSS">
-      			  <span class="fa-stack fa-lg">
-        				<i class="fa fa-circle fa-stack-2x"></i>
-        				<i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-      			  </span>
-      			</a>
-    		  </li>		
-
         </ul>
-        <p class="copyright text-muted">
-    		  Ishbir Singh
-    		  &nbsp;&bull;&nbsp;
-    		  2016
-    		  
-    		  
-    		  &nbsp;&bull;&nbsp;
-    		  <a href="http://www.ishbir.com/">Ishbir&#39;s Blog</a>
-    		  
-  	    </p>
-  	        
-    		<p class="theme-by text-muted">
-    		  Theme by
-    		  <a href="http://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
-    		</p>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2016
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.ishbir.com/">Ishbir&#39;s Blog</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.140.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
       </div>
     </div>
   </div>
-</footer>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
 
-<script src="http://www.ishbir.com/js/jquery-1.11.2.min.js"></script>
-<script src="http://www.ishbir.com/js/bootstrap.min.js"></script>
-<script src="http://www.ishbir.com/js/main.js"></script>
-
-
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-25081584-1', 'auto');
-ga('send', 'pageview');
-</script>
+<script src="https://www.ishbir.com/js/main.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://www.ishbir.com/js/load-photoswipe.js"></script>
 
 
+
+
+
+
+
+
+
+
+    
   </body>
 </html>
+

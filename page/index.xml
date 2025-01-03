@@ -1,56 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pages on Ishbir&#39;s Blog</title>
-    <link>http://www.ishbir.com/page/</link>
+    <link>https://www.ishbir.com/page/</link>
     <description>Recent content in Pages on Ishbir&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <managingEditor>ishbir@ishbir.com (Ishbir Singh)</managingEditor>
-    <webMaster>ishbir@ishbir.com (Ishbir Singh)</webMaster>
-    <atom:link href="http://www.ishbir.com/page/index.xml" rel="self" type="application/rss+xml" />
-    
+    <atom:link href="https://www.ishbir.com/page/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About</title>
-      <link>http://www.ishbir.com/page/about/</link>
+      <link>https://www.ishbir.com/page/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>ishbir@ishbir.com (Ishbir Singh)</author>
-      <guid>http://www.ishbir.com/page/about/</guid>
-      <description>
-
-&lt;p&gt;My name is Ishbir Singh and I hate writing About pages.&lt;/p&gt;
-
-&lt;p&gt;&amp;ldquo;Who are you?&amp;rdquo; Wish I could satisfactorily answer that. A better question
-would be: what do you like to do? I like to learn, experience, travel and live.
-I work to learn and not vice-versa. I&amp;rsquo;m curious about people and their stories.&lt;/p&gt;
-
-&lt;p&gt;&amp;ldquo;I don&amp;rsquo;t understand. Where does programming fit in?&amp;rdquo; you ask. I look at
-machines and picture the humans behind them: their motivation, story and
-goals. Software for me isn&amp;rsquo;t just lines of code. It&amp;rsquo;s a piece of art; a story
-waiting to be discovered and written. It is with this attitude that I work on
-any project: 100% of emotional and intellectual dedication. I am invested in
-the success of not only my project, but also of the organization behind it.&lt;/p&gt;
-
-&lt;p&gt;My technological interests change every few years but right now, they are:
-machine learning and natural language processing. In the past they&amp;rsquo;ve included
-crypto-currencies, cybersecurity, hardware hacking, distributed and
-peer-to-peer systems.&lt;/p&gt;
-
-&lt;h1 id=&#34;why-d-i-start-this-blog&#34;&gt;Why&amp;rsquo;d I start this blog?&lt;/h1&gt;
-
-&lt;p&gt;I felt like I needed a place to put together all my programming research and
-improve my writing skills. What better way than to blog about it? Hopefully it
-would help someone with their own endeavors.&lt;/p&gt;
-
-&lt;p&gt;Also, a blog is an excellent marketing tool. :-)&lt;/p&gt;
-
-&lt;h1 id=&#34;pss&#34;&gt;Pss&amp;hellip;&lt;/h1&gt;
-
-&lt;p&gt;Want to get in touch? Check out the links in the footer!&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;PGP Key Fingerprint&lt;/strong&gt;: &lt;em&gt;BDC6 4F8E 3A22 AC13 CCA8 1588 7E69 07B5 2E4B 2CDD&lt;/em&gt;&lt;/p&gt;
-</description>
+      <guid>https://www.ishbir.com/page/about/</guid>
+      <description>&lt;p&gt;My name is Ishbir Singh and I hate writing About pages.&lt;/p&gt;&#xA;&lt;p&gt;&amp;ldquo;Who are you?&amp;rdquo; Wish I could satisfactorily answer that. A better question&#xA;would be: what do you like to do? I like to learn, experience, travel and live.&#xA;I work to learn and not vice-versa. I&amp;rsquo;m curious about people and their stories.&lt;/p&gt;&#xA;&lt;p&gt;&amp;ldquo;I don&amp;rsquo;t understand. Where does programming fit in?&amp;rdquo; you ask. I look at&#xA;machines and picture the humans behind them: their motivation, story and&#xA;goals. Software for me isn&amp;rsquo;t just lines of code. It&amp;rsquo;s a piece of art; a story&#xA;waiting to be discovered and written. It is with this attitude that I work on&#xA;any project: 100% of emotional and intellectual dedication. I am invested in&#xA;the success of not only my project, but also of the organization behind it.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

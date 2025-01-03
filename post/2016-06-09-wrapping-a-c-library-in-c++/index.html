@@ -1,39 +1,123 @@
-<!DOCTYPE html>
-<html lang="en">
 
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
   <head>
+    
+
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Wrapping a C library in C&#43;&#43;</title>
+ 
 
-  <meta name="author" content="Ishbir Singh" />
+
+      <title>Wrapping a C library in C&#43;&#43; - </title>
+
+  <meta name="description" content="Why, When, How"><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Ishbir\u0027s Blog",
+    
+    "url": "https:\/\/www.ishbir.com\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/www.ishbir.com\/"
   
   
-
-  <meta name="generator" content="Hugo 0.16-DEV" />
-
-  <link rel="alternate" href="http://www.ishbir.com/index.xml" type="application/rss+xml" title="Ishbir&#39;s Blog">
-
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="http://www.ishbir.com/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="http://www.ishbir.com/css/main.css" />
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
-  <link rel="stylesheet" href="http://www.ishbir.com/css/pygment_highlights.css" />
   
   
-  <meta property="og:title" content="Wrapping a C library in C&#43;&#43;" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="/" />
-  <meta property="og:image" content="img/avatar.jpg" />
-  
-</head>
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/www.ishbir.com\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/www.ishbir.com\/post\/2016-06-09-wrapping-a-c-library-in-c\u002b\u002b\/",
+          "name": "Wrapping a c library in c"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "Wrapping a C library in C\u002b\u002b",
+  "description" : "Lots of libraries offer interfaces in C mainly to be universally callable from any programming language. This is absolutely fantastic! It lets any language with a FFI (Foreign Function Interface) to hook into and use a large number of C libraries. But the downsides? The code is verbose, memory needs to be manually managed and it\u0026rsquo;s really easy to forget the crucial bits.\nC\u002b\u002b, being extremely close to C, can easily call into a C library if needed. And the vice-verse is also true if extern \u0026quot;C\u0026quot; is used (instruct the compiler to not mangle function names). So, should you even go through the trouble of wrapping it in C\u002b\u002b? If so, what\u0026rsquo;s a good way to do it? This post explores these questions and offers an insight into the hell called cross-language interoperability.\n",
+  "inLanguage" : "en",
+  "wordCount":  1064 ,
+  "datePublished" : "2016-06-09T00:00:00\u002b00:00",
+  "dateModified" : "2016-06-09T00:00:00\u002b00:00",
+  "image" : "https:\/\/www.ishbir.com\/img\/avatar.jpg",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/www.ishbir.com\/post\/2016-06-09-wrapping-a-c-library-in-c\u002b\u002b\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/www.ishbir.com\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/www.ishbir.com\/img\/avatar.jpg",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
 
 
+<meta property="og:title" content="Wrapping a C library in C&#43;&#43;" />
+<meta property="og:description" content="Why, When, How">
+<meta property="og:image" content="https://www.ishbir.com/img/avatar.jpg" />
+<meta property="og:url" content="https://www.ishbir.com/post/2016-06-09-wrapping-a-c-library-in-c&#43;&#43;/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Ishbir&#39;s Blog" />
+
+  <meta name="twitter:title" content="Wrapping a C library in C&#43;&#43;" />
+  <meta name="twitter:description" content="Why, When, How">
+  <meta name="twitter:image" content="https://www.ishbir.com/img/avatar.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="generator" content="Hugo 0.140.2">
+  <link rel="alternate" href="https://www.ishbir.com/index.xml" type="application/rss+xml" title="Ishbir&#39;s Blog"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://www.ishbir.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" /><link rel="stylesheet" href="https://www.ishbir.com/css/syntax.css" /><link rel="stylesheet" href="https://www.ishbir.com/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-EQH4SCJNZC"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-EQH4SCJNZC');
+        }
+      </script>
+  </head>
   <body>
-
     <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -43,142 +127,202 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="http://www.ishbir.com/">Ishbir&#39;s Blog</a>
+      <a class="navbar-brand" href="https://www.ishbir.com/">Ishbir&#39;s Blog</a>
     </div>
 
     <div class="collapse navbar-collapse" id="main-navbar">
       <ul class="nav navbar-nav navbar-right">
-      
         
-          <li>
-          <a title="Blog" href="http://www.ishbir.com/">Blog</a>
-  	      </li>
-  	    
-      
+          
+            <li>
+              <a title="Blog" href="https://www.ishbir.com/">Blog</a>
+            </li>
+          
         
-          <li>
-          <a title="About" href="http://www.ishbir.com/page/about/">About</a>
-  	      </li>
-  	    
-      
+          
+            <li>
+              <a title="About" href="https://www.ishbir.com/page/about/">About</a>
+            </li>
+          
+        
+
+        
+
+        
       </ul>
     </div>
 
-	<div class="avatar-container">
-	  <div class="avatar-img-border">
-      
-          <a title="Ishbir&#39;s Blog" href="http://www.ishbir.com/">
-              <img class="avatar-img" src="http://www.ishbir.com/img/avatar.jpg" alt="Ishbir&#39;s Blog" />
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="Ishbir&#39;s Blog" href="https://www.ishbir.com/">
+            <img class="avatar-img" src="https://www.ishbir.com/img/avatar.jpg" alt="Ishbir&#39;s Blog" />
+           
           </a>
-      
-	  </div>
-	</div>
+        </div>
+      </div>
+    
 
   </div>
 </nav>
 
 
-    <div role="main" class="container main-content">
-
-      
-        
 
 
+    
 
 
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 
-<header class="header-section ">
+<div class="pswp__bg"></div>
 
-<div class="intro-header no-img">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="post-heading">
-          <h1>Wrapping a C library in C&#43;&#43;</h1>
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
       
-        
-      <h2 class="post-subheading">Why, When, How</h2>
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
       
       
-      
-      
-      <span class="post-meta">Posted on June 9, 2016</span>
-      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
 </div>
-</header>
+
+
+  
+  
+  
 
 
 
 
-<div class="container">
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Wrapping a C library in C&#43;&#43;</h1>
+              
+              
+              
+                
+                  <h2 class="post-subheading">Why, When, How</h2>
+                
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on June 9, 2016
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-          
-
-<p>Lots of libraries offer interfaces in C mainly to be universally callable from
+        <p>Lots of libraries offer interfaces in C mainly to be universally callable from
 any programming language. This is absolutely fantastic! It lets any language
 with a FFI (Foreign Function Interface) to hook into and use a large number of
 C libraries. But the downsides? The code is verbose, memory needs to be manually
 managed and it&rsquo;s really easy to forget the crucial bits.</p>
-
 <p>C++, being extremely close to C, can easily call into a C library if needed.
 And the vice-verse is also true if <code>extern &quot;C&quot;</code> is used (instruct the compiler
 to not mangle function names). So, should you even go through the trouble of
 wrapping it in C++? If so, what&rsquo;s a good way to do it? This post explores these
 questions and offers an insight into the hell called cross-language
 interoperability.</p>
-
 <h1 id="motivation">Motivation</h1>
-
 <p>RAII (<em>Resource Acquisition Is Initialization</em>) is one of the most common C++
 idioms that exists. C libraries, on the other hand, use functions like <code>resource_open()</code>,
 <code>resource_destroy()</code>. The function names are ugly (<em>ahem</em>) and the algorithm
 gets lost within the endless memory management. Try reading the source code of
 the Linux kernel, for example.</p>
-
 <p>C++ greatly improves semantics with its destructors, copy constructors, operator
 overloads, templates and as of C++11, move constructors, resulting in code that
 is very easy to read, understand and not too hard to reason about. Moreover, the
 introduction of features like lambdas makes C-style function pointers and
 <code>void*</code> look like code from the 90s.</p>
-
-<p><img src="http://www.ishbir.com/img/posts/shiny-features-meme.jpg" alt="Meme" /></p>
-
+<p><img src="https://www.ishbir.com/img/posts/shiny-features-meme.jpg" alt="Meme"></p>
 <p>This discussion begs the question: why wouldn&rsquo;t you wrap C code to be called
 from C++ in a lightweight wrapper? Possible reasons: time/resource constraints,
 and possibility of introduction of bugs and new attack vectors.</p>
-
-<h2 id="time-resource-constraints">Time/Resource Constraints</h2>
-
+<h2 id="timeresource-constraints">Time/Resource Constraints</h2>
 <p>If the library exposes a few functions that are simple enough to be used well
 and idiomatically in modern C++, then there&rsquo;s nothing more that needs to be
 done. C++ can call directly into C without any problem so you&rsquo;re good to go.</p>
-
 <p>However, as soon as the library hits 2 dozen or so functions and is written in
 an OOP style (think CURL), wrapping it in C++ becomes a necessity. If a typical
 program using your library is an endless mess of <code>resource_init</code> and <code>resource_free</code>,
 again, you are better off wrapping it in C++ than manually having to investigate
 Valgrind&rsquo;s complaints. The 2-4 days you spend wrapping a C library using modern
 C++ is going to save hours of headache each and every day for months to come.</p>
-
 <h2 id="possibility-of-introduction-of-bugs">Possibility of Introduction of Bugs</h2>
-
 <p>Bugs will always exist in programs and abstractions are bound to introduce even
 more of them. If you&rsquo;re trying to expose an interface very different from what
 the library currently offers, I can guarantee you: you will bang your head on
 the wall trying to fight with the compiler and the patterns that GoF taught you.
 You&rsquo;re dealing with a badly written library and are probably better off with a
 complete re-write.</p>
-
 <p>But, if the library already offers an OOPish interface, a wrapper around most
 functions would not require more than 2-3 lines of code per function. And as we
 all know: lesser the code, fewer the bugs.</p>
-
 <p>Again, depending on the library, it can be very difficult/impossible to test
 individual functions in isolation. This could be because you don&rsquo;t have access
 to the internals of the library, the library communicates with the outside world
@@ -187,9 +331,7 @@ result of a bad design or the very nature of the component. 100% test coverage,
 in this case, is much more effort than it&rsquo;s worth. The best you could do to
 ensure that no bugs creeped in is pair programming or getting your code reviewed
 by other programmers. And of course, pray.</p>
-
 <h2 id="new-attack-vectors">New Attack Vectors</h2>
-
 <p>Security vulnerabilities are a special type of bugs that could potentially be
 exploitable and capable of bringing a system (or the internet?) down to its
 knees and have exposed organizations running for cover (and <a href="http://heartbleed.com">much</a>,
@@ -198,43 +340,35 @@ knees and have exposed organizations running for cover (and <a href="http://hear
 this be a deterrent to a well-read software engineer? Of course not! It should
 rather be a warning: you should always be security-conscious when you write your
 code.</p>
-
 <p>Fortunately, code written in C++ in arguably safer than the same thing written
 in C. This is because C++ gives you the power of abstractions that take the
 responsibility of the nasty bits away from the caller and towards the callee.
 For example, common issues like buffer overflows and format string
 vulnerabilities can be easily avoided by using the C++ standard library
 functions instead of their C stdlib counterparts.</p>
-
 <p>Very few rookie programmers, if any at all, use <code>snprintf</code> instead of <code>sprintf</code>.
 Wrapping everything in C++ and making it a point (across your team) to use the
 standard library/Boost as much as possible avoids a whole mountain of security
 issues.</p>
-
 <h1 id="the-process">The Process</h1>
-
 <p>So you&rsquo;re convinced that the C library you&rsquo;re going to use in your quest for
 world domination needs to be wrapped in C++. Great. But how do you do it? It
 really depends on the library. For a few libraries, it might be as simple as
 creating classes with the appropriate methods, adding/deleting the move, copy
 and other constructors, operators and the destructor.</p>
-
 <p>However, sometimes the picture isn&rsquo;t as rosy. The library maybe exposes
 functions that accept function pointers to provide callbacks and notifications
 and you want to provide compatibility with <code>std::function</code> (hint: lambdas that
 capture variables cannot be cast to function pointers). Or maybe it returns a
 <code>status</code> enum value for each and every function and you want a uniform
 way of handling these values (exceptions).</p>
-
 <p>You will need to jump through various hoops, write various helper functions and
 think like an API user to be create a useful interface that works. At times,
 it will be boring and tedious (who likes mapping C-style enums to C++ enum
 classes?). Other times, it could leave you scratching your head (the curious
 case of function pointers).</p>
-
 <p>But if done right, the beauty of code written in C++ using your wrapper will
 make you orgasm. I promise.</p>
-
 <p><strong>P.S</strong>.: <a href="https://github.com/ishbir/cppnats">cppnats</a> is a C++ wrapper that I
 made for a medium-sized library (cnats). It includes simple tests that highlight
 usage. It isn&rsquo;t perfect and there are a few things I couldn&rsquo;t manage to
@@ -242,131 +376,79 @@ translate to C++ (read: wasn&rsquo;t motivated enough) like non-RAII pointer
 encapsulation of <code>natsConnection</code> and <code>natsSubscription</code> but it suits my current
 needs well.</p>
 
+        
+
+        
+
+        
       </article>
 
-      <ul class="pager blog-pager">
-        
-        
-        <li class="next">
-          <a href="http://www.ishbir.com/post/2016-08-14-futures-in-rust/" data-toggle="tooltip" data-placement="top" title="Futures in Rust">Next Post &rarr;</a>
-        </li>
-        
-      </ul>
-
       
-      <div class="disqus-comments">
-        <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_shortname = 'ishbir';
-    var disqus_identifier = 'http:\/\/www.ishbir.com\/post\/2016-06-09-wrapping-a-c-library-in-c\x2b\x2b\/';
-    var disqus_title = 'Wrapping a C library in C\x2b\x2b';
-    var disqus_url = 'http:\/\/www.ishbir.com\/post\/2016-06-09-wrapping-a-c-library-in-c\x2b\x2b\/';
+        <ul class="pager blog-pager">
+          
+          
+            <li class="next">
+              <a href="https://www.ishbir.com/post/2016-08-14-futures-in-rust/" data-toggle="tooltip" data-placement="top" title="Futures in Rust">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
 
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-      </div>
+
       
 
     </div>
   </div>
 </div>
 
-      
-
-    </div>
-
-    <footer>
-  <div class="container beautiful-jekyll-footer">
+      <footer>
+  <div class="container">
+    
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <ul class="list-inline text-center footer-links">
           
           
-          <li>
-            <a href="https://github.com/ishbir" title="GitHub">
-              <span class="fa-stack fa-lg">
-                <i class="fa fa-circle fa-stack-2x"></i>
-                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-              </span>
-            </a>
-          </li>
-          
-		      
-		      
-          <li>
-            <a href="mailto:ishbir@ishbir.com" title="Email me">
-              <span class="fa-stack fa-lg">
-                <i class="fa fa-circle fa-stack-2x"></i>
-                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
-              </span>
-            </a>
-          </li>
-          
-		      
-          <li>
-            <a href="https://linkedin.com/in/ishbir" title="LinkedIn">
-              <span class="fa-stack fa-lg">
-                <i class="fa fa-circle fa-stack-2x"></i>
-                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-              </span>
-            </a>
-          </li>
-          
-	    	  
-          
-          
-
-    		  <li>
-      			<a href="http://www.ishbir.com/index.xml" title="RSS">
-      			  <span class="fa-stack fa-lg">
-        				<i class="fa fa-circle fa-stack-2x"></i>
-        				<i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-      			  </span>
-      			</a>
-    		  </li>		
-
         </ul>
-        <p class="copyright text-muted">
-    		  Ishbir Singh
-    		  &nbsp;&bull;&nbsp;
-    		  2016
-    		  
-    		  
-    		  &nbsp;&bull;&nbsp;
-    		  <a href="http://www.ishbir.com/">Ishbir&#39;s Blog</a>
-    		  
-  	    </p>
-  	        
-    		<p class="theme-by text-muted">
-    		  Theme by
-    		  <a href="http://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
-    		</p>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2016
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.ishbir.com/">Ishbir&#39;s Blog</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.140.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
       </div>
     </div>
   </div>
-</footer>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
 
-<script src="http://www.ishbir.com/js/jquery-1.11.2.min.js"></script>
-<script src="http://www.ishbir.com/js/bootstrap.min.js"></script>
-<script src="http://www.ishbir.com/js/main.js"></script>
-
-
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-25081584-1', 'auto');
-ga('send', 'pageview');
-</script>
+<script src="https://www.ishbir.com/js/main.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://www.ishbir.com/js/load-photoswipe.js"></script>
 
 
+
+
+
+
+
+
+
+
+    
   </body>
 </html>
+

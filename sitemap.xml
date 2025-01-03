@@ -1,23 +1,25 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://www.ishbir.com/</loc>
+    <loc>https://www.ishbir.com/post/2016-08-14-futures-in-rust/</loc>
     <lastmod>2016-08-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.ishbir.com/post/2016-08-14-futures-in-rust/</loc>
+  </url><url>
+    <loc>https://www.ishbir.com/</loc>
     <lastmod>2016-08-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.ishbir.com/post/2016-06-09-wrapping-a-c-library-in-c&#43;&#43;/</loc>
+  </url><url>
+    <loc>https://www.ishbir.com/post/</loc>
+    <lastmod>2016-08-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.ishbir.com/post/2016-06-09-wrapping-a-c-library-in-c&#43;&#43;/</loc>
     <lastmod>2016-06-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.ishbir.com/page/about/</loc>
+  </url><url>
+    <loc>https://www.ishbir.com/categories/</loc>
+  </url><url>
+    <loc>https://www.ishbir.com/page/</loc>
+  </url><url>
+    <loc>https://www.ishbir.com/tags/</loc>
   </url>
-  
-  <url>
-    <loc>http://www.ishbir.com/page/about/</loc>
-  </url>
-  
 </urlset>
