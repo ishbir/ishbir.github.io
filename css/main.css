@@ -10,12 +10,7 @@ body {
   flex-flow: column;
   height: 100vh;
 }
-@media (prefers-color-scheme: dark) {
-  body {
-    background: black;
-    color: white;
-  }
-}
+
 .container[role=main] {
   margin-bottom:50px;
   flex: 1 0 auto;
@@ -52,11 +47,7 @@ h1,h2,h3,h4,h5,h6 {
 a {
   color: #008AFF;
 }
-@media (prefers-color-scheme: dark) {
-  a {
-    color: #50afff;
-  }
-}
+
 a:hover,
 a:focus {
   color: #0085a1;
@@ -68,11 +59,7 @@ blockquote {
 blockquote p:first-child {
   margin-top: 0;
 }
-@media (prefers-color-scheme: dark) {
-  blockquote {
-    border-left: 5px solid #444;
-  }
-}
+
 hr.small {
   max-width: 100px;
   margin: 15px auto;
@@ -133,11 +120,6 @@ img {
   margin: auto;
   max-width: 100%;
 }
-@media (prefers-color-scheme: dark) {
-figure:not(.dark) img, img.white {
-  background-color: white;
-}
-}
 
 .img-title {
   width: 100%;
@@ -164,12 +146,6 @@ figure:not(.dark) img, img.white {
   border-bottom: 1px solid #EAEAEA;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
-@media (prefers-color-scheme: dark) {
-  .navbar-custom {
-    background: #505050;
-    border-bottom: 1px solid #AAA;
-  }
-}
 
 .navbar-custom .nav li a {
   text-transform: uppercase;
@@ -183,27 +159,12 @@ figure:not(.dark) img, img.white {
   color: #404040;
 }
 
-@media (prefers-color-scheme: dark) {
-  .navbar-custom .navbar-brand,
-  .navbar-custom .nav li a {
-    color: #b0b0b0;
-  }
-}
 
 .navbar-custom .navbar-brand:hover,
 .navbar-custom .navbar-brand:focus ,
 .navbar-custom .nav li a:hover,
 .navbar-custom .nav li a:focus {
   color: #0085a1;
-}
-
-.navbar-custom .navbar-brand:hover,
-.navbar-custom .navbar-brand:focus ,
-.navbar-custom .nav li a:hover,
-.navbar-custom .nav li a:focus {
-  @media (prefers-color-scheme: dark) {
-    color: #b0e0ff;
-  }
 }
 
 .navbar-custom .navbar-brand-logo {
@@ -339,17 +300,6 @@ figure:not(.dark) img, img.white {
     border-width: 0 1px 1px;
   }
 }
-@media (prefers-color-scheme: dark) {
-  .navbar-custom .nav .navlinks-container:hover {
-    background: #666;
-  }
-  .navbar-custom .nav .navlinks-container .navlinks-children a {
-    border: 1px solid #AAA;
-  }
-  .navbar-custom .nav .navlinks-container .navlinks-children a {
-    background: #444;
-  }
-}
 
 /* --- Footer --- */
 
@@ -406,16 +356,6 @@ footer div.disclaimer {
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  footer {
-    background: #444;
-    border-top: 1px #AAA solid;
-  }
-  footer a {
-    color: #AAA;
-  }
-}
-
 /* --- Post preview --- */
 
 .post-preview {
@@ -435,11 +375,6 @@ footer div.disclaimer {
 .post-preview a {
   text-decoration: none;
   color: #404040;
-}
-@media (prefers-color-scheme: dark) {
-  .post-preview a {
-    color: #AAA;
-  }
 }
 
 .post-preview a:focus,
@@ -742,13 +677,6 @@ footer div.disclaimer {
   border: 1px solid #0085a1;
 }
 
-@media (prefers-color-scheme: dark) {
-.pager li a {
-  background: #444;
-  color: white;
-}
-}
-
 .pager {
   margin: 10px 0 0;
 }
@@ -778,19 +706,11 @@ table tr {
   margin: 0;
   padding: 0;
 }
-@media (prefers-color-scheme: dark) {
-}
+
 table tr:nth-child(2n) {
   background-color: #f8f8f8;
 }
-@media (prefers-color-scheme: dark) {
-table tr {
-  background-color: #181818;
-}
-table tr:nth-child(2n) {
-  background-color: #303030
-}
-}
+
 table tr th {
   font-weight: bold;
   border: 1px solid #cccccc;
@@ -916,46 +836,6 @@ h4.see-also {
 }
  ul.share li:hover .fab {
   transform: scale(1.4)
-}
-
-/* Dark mode */
-@media (prefers-color-scheme: dark) {
-  code {
-    background-color: #222;
-    color: #fbb;
-  }
-  pre code {
-    color: #ccc;
-  }
-  .well {
-    background-color: #444;
-  }
-  .panel {
-    background-color: #222;
-  }
-  .list-group-item {
-    background-color: #333;
-  }
-
-  pre.chroma {
-    color: white;
-    background-color: #444;
-  }
-  pre.chroma .k {
-    color: #44AACC;
-  }
-  pre.chroma .kt {
-    color: #33CCCC;
-  }
-  pre.chroma .o {
-    color: #AAA;
-  }
-  pre.chroma .nb {
-    color: #00fee9;
-  }
-  pre.chroma .ow {
-    color: #CC0;
-  }
 }
 
 /* --- Make long KaTeX equations scrollable in the x-axis --- */
